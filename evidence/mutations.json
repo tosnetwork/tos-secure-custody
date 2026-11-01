@@ -2,6 +2,66 @@
   "controls": [
     {
       "baseline_passed": true,
+      "name": "batch-deployment-code",
+      "target": "test_batch_state.BatchStateTests.test_mixed_or_stale_proof_refused",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "batch-live-state",
+      "target": "test_batch_state.BatchStateTests.test_mixed_or_stale_proof_refused",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "proof-data-binding",
+      "target": "test_batch_state.BatchStateTests.test_mixed_or_stale_proof_refused",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "batch-recipient",
+      "target": "test_batch_state.BatchStateTests.test_independent_recipient_policy",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "batch-governance-delay",
+      "target": "test_batch_state.BatchStateTests.test_governance_requires_independent_intent_and_timelock",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "journal-checkpoint",
+      "target": "test_journal.JournalTests.test_backup_restore_refused_with_independent_tip",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "journal-budget",
+      "target": "test_journal.JournalTests.test_cumulative_reservation_uses_wide_integers",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "journal-intent",
+      "target": "test_journal.JournalTests.test_same_intent_cannot_use_a_new_slot",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "journal-slot",
+      "target": "test_journal.JournalTests.test_same_wallet_slot_different_bytes",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "journal-quarantine",
+      "target": "test_journal.JournalTests.test_frozen_deleted_redeployed_wallet_stays_quarantined",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
       "name": "mldsa-backend-rejection",
       "target": "test_verification.VerificationTests.test_backend_errors_and_timeout_fail_closed",
       "targeted_assertion_failed_after_mutation": true
@@ -177,5 +237,5 @@
   ],
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.mutation-results.v1",
-  "source_digest": "47478cfce7aa5e2bf25c0f87eedf5e05fc3edad39856e43c4458d200c4b0c0f6"
+  "source_digest": "dc23773b0835efe30fdd21118c8350c3a2b3e05eba9ed7bf664bca59d6a6e9a7"
 }

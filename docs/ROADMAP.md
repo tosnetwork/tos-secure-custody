@@ -140,3 +140,13 @@ Optional diagnostic ML-DSA verification and local native wallet-to-Vault parser
 comparisons are now available. See [local acceptance](LOCAL_ACCEPTANCE.md) for the
 exact scope, artifact provenance and portable firmware corpus. Authenticated
 state/finality and full S1 acceptance remain outstanding.
+
+## Proof-backed policy and persistence increment
+
+RFC 0005 integrates the existing native PQ finality/account verifier, binds decoded
+data and deployed code, adds independently provisioned batch/role appraisal and
+durable conservative reservations. Native lifecycle probes include serialized
+restart, frozen/deleted snapshots, explicit StateInit redeployment and a PQ pauser.
+Historical real proof checks establish the adapter boundary. Fresh proofs for an
+actual custody deployment, settlement reconciliation and non-author acceptance
+remain required before closing S1; signing remains disabled.

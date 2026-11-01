@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+import sqlite3
 from .canonical import loads
 from .errors import CustodyError
 from .offline import inspect_bundle, check_bundle
@@ -10,6 +11,10 @@ from .vault import inspect_boc
 from .highload import FORMS, inspect_highload
 from .multisig import inspect_multisig, inspect_multisig_state
 from .verification import OpenSslVerifier, verify_highload, verify_multisig
+from .session import appraise_session
+from .journal import Journal
+from .proofs import initialize_native_state
+from .batch import validate_policy as validate_batch_policy
 
 
 def _read(path, limit=131072):
@@ -53,9 +58,40 @@ def main(argv=None):
     check.add_argument("--policy", required=True)
     check.add_argument("--now", required=True, type=int, help="trusted timestamp for diagnostic fixtures")
     commands.add_parser("status", help="show implementation boundaries")
+    batch = commands.add_parser("appraise-batch", help="local proof-backed policy appraisal; signing remains disabled")
+    batch.add_argument("file")
+    batch.add_argument("--policy", required=True, help="independently provisioned local policy")
+    batch.add_argument("--session", required=True, help="operator-only proof session configuration")
+    batch.add_argument("--now", required=True, type=int)
+    batch.add_argument("--form", choices=FORMS, default="request")
+    batch.add_argument("--openssl", help="absolute software verifier path, required for signed forms")
+    batch.add_argument("--journal", help="reserve atomically in an explicitly provisioned journal")
+    batch.add_argument("--checkpoint", help="independently retained journal checkpoint JSON")
+    init = commands.add_parser("init-journal", help="explicit local journal provisioning; refuses existing file")
+    init.add_argument("file")
+    init.add_argument("--policy", required=True)
+    init_state = commands.add_parser("init-proof-state", help="explicit native-state enrollment; refuses existing file")
+    init_state.add_argument("file")
+    init_state.add_argument("--anchor", required=True)
     args = parser.parse_args(argv)
     try:
-        if args.command == "verify-highload":
+        if args.command == "init-journal":
+            policy = validate_batch_policy(loads(_read(args.policy)))
+            result = {"checkpoint": Journal.create(args.file, anchor_digest=policy["anchor_digest"]),
+                      "warning": "Retain this checkpoint independently; losing both storage copies permits rollback."}
+        elif args.command == "init-proof-state":
+            result = initialize_native_state(args.file, loads(_read(args.anchor)))
+        elif args.command == "appraise-batch":
+            if bool(args.journal) != bool(args.checkpoint):
+                raise CustodyError("journal and independent checkpoint must be supplied together")
+            policy = loads(_read(args.policy))
+            result = appraise_session(_read(args.file), policy=policy, session=loads(_read(args.session)),
+                                      now=args.now, form=args.form,
+                                      verifier=OpenSslVerifier(args.openssl) if args.openssl else None)
+            if args.journal:
+                result["reservation"] = Journal(args.journal, anchor_digest=policy["anchor_digest"]).reserve(
+                    result, expected_tip=loads(_read(args.checkpoint)), now=args.now)
+        elif args.command == "verify-highload":
             result = verify_highload(_read(args.file), form=args.form,
                                      public_key=_read(args.public_key, 1312), verifier=OpenSslVerifier(args.openssl))
         elif args.command == "verify-multisig":
@@ -77,16 +113,18 @@ def main(argv=None):
         elif args.command == "check-bundle":
             result = check_bundle(_read(args.file), loads(_read(args.policy)), now=args.now)
         else:
-            result = {"stage": "experimental-inspection-only", "production_signing_enabled": False,
+            result = {"stage": "experimental-proof-backed-diagnostics", "production_signing_enabled": False,
                       "hardware_qualified": False, "post_quantum_hardware_qualified": False,
                       "supported_parser": "ordinary BOC + Treasury Vault V1 bodies/internal messages",
                       "pq_highload_parser": "Vault-only request/submission/relay inspection; not authentication",
                       "pq_multisig_parser": "cold request/submission/relay and account-data inspection; not authentication",
                       "pq_signature_verification": "optional OpenSSL ML-DSA-44 against supplied keys; no state authentication",
+                      "proof_sessions": "operator-pinned native verifier, anchor, code/data and same-block account binding",
+                      "durable_reservations": "SQLite + independently retained checkpoints; no automatic release",
                       "external_wallet_parser": "not implemented", "hardware_attestation": "not implemented"}
         print(json.dumps(result, indent=2, sort_keys=True))
         return 0
-    except (CustodyError, OSError) as exc:
+    except (CustodyError, OSError, sqlite3.Error) as exc:
         print("Rejected: " + str(exc), file=sys.stderr)
         return 2
 

@@ -27,6 +27,27 @@ test_unknown_challenge (test_attestation.AttestationTests.test_unknown_challenge
 test_unknown_claim (test_attestation.AttestationTests.test_unknown_claim) ... ok
 test_wrong_binding (test_attestation.AttestationTests.test_wrong_binding) ... ok
 test_wrong_key (test_attestation.AttestationTests.test_wrong_key) ... ok
+test_bitmap_current_old_and_rotation (test_batch_state.BatchStateTests.test_bitmap_current_old_and_rotation) ... ok
+test_bound_batch_and_separate_budgets (test_batch_state.BatchStateTests.test_bound_batch_and_separate_budgets) ... ok
+test_chain_and_independent_budget_limits (test_batch_state.BatchStateTests.test_chain_and_independent_budget_limits) ... ok
+test_chain_role_and_policy_both_required (test_batch_state.BatchStateTests.test_chain_role_and_policy_both_required) ... ok
+test_cold_membership_preimage_needs_independent_allowlist (test_batch_state.BatchStateTests.test_cold_membership_preimage_needs_independent_allowlist) ... ok
+test_different_vault_target_refused (test_batch_state.BatchStateTests.test_different_vault_target_refused) ... ok
+test_expired_policy_and_wallet (test_batch_state.BatchStateTests.test_expired_policy_and_wallet) ... ok
+test_governance_requires_independent_intent_and_timelock (test_batch_state.BatchStateTests.test_governance_requires_independent_intent_and_timelock) ... ok
+test_guardian_requires_exact_proven_pending_request (test_batch_state.BatchStateTests.test_guardian_requires_exact_proven_pending_request) ... ok
+test_independent_recipient_policy (test_batch_state.BatchStateTests.test_independent_recipient_policy) ... ok
+test_mixed_or_stale_proof_refused (test_batch_state.BatchStateTests.test_mixed_or_stale_proof_refused) ... ok
+test_multiple_vaults_are_checked_individually (test_batch_state.BatchStateTests.test_multiple_vaults_are_checked_individually) ... ok
+test_nonce_epoch_pause_pending (test_batch_state.BatchStateTests.test_nonce_epoch_pause_pending) ... ok
+test_pauser_and_cold_multisig_have_pause_only_paths (test_batch_state.BatchStateTests.test_pauser_and_cold_multisig_have_pause_only_paths) ... ok
+test_repeated_vault_and_hidden_unallowed_operation (test_batch_state.BatchStateTests.test_repeated_vault_and_hidden_unallowed_operation) ... ok
+test_replay_bitmap_shape (test_batch_state.BatchStateTests.test_replay_bitmap_shape) ... ok
+test_retiring_guardian_cannot_veto_its_own_replacement (test_batch_state.BatchStateTests.test_retiring_guardian_cannot_veto_its_own_replacement) ... ok
+test_unsigned_and_signed_are_distinct (test_batch_state.BatchStateTests.test_unsigned_and_signed_are_distinct) ... ok
+test_vault_roles_count_and_data_tail (test_batch_state.BatchStateTests.test_vault_roles_count_and_data_tail) ... ok
+test_wallet_fees_not_treasury_spend (test_batch_state.BatchStateTests.test_wallet_fees_not_treasury_spend) ... ok
+test_wallet_subwallet_and_timeout_binding (test_batch_state.BatchStateTests.test_wallet_subwallet_and_timeout_binding) ... ok
 test_crc32c_known_vector (test_boc.BocTests.test_crc32c_known_vector) ... ok
 test_crc_corruption (test_boc.BocTests.test_crc_corruption) ... ok
 test_depth_bound (test_boc.BocTests.test_depth_bound) ... ok
@@ -94,6 +115,22 @@ test_unsigned_relay_fields_do_not_change_preimage (test_highload.HighloadTests.t
 test_vault_binding (test_highload.HighloadTests.test_vault_binding) ... ok
 test_wrong_submission_opcode (test_highload.HighloadTests.test_wrong_submission_opcode) ... ok
 test_zero_timeout (test_highload.HighloadTests.test_zero_timeout) ... ok
+test_backup_restore_refused_with_independent_tip (test_journal.JournalTests.test_backup_restore_refused_with_independent_tip) ... ok
+test_code_change_and_same_height_fork_refused (test_journal.JournalTests.test_code_change_and_same_height_fork_refused) ... ok
+test_cumulative_reservation_uses_wide_integers (test_journal.JournalTests.test_cumulative_reservation_uses_wide_integers) ... ok
+test_duplicate_charge_not_hidden_in_one_batch (test_journal.JournalTests.test_duplicate_charge_not_hidden_in_one_batch) ... ok
+test_expired_appraisal_cannot_be_reserved_with_live_wallet_expiry (test_journal.JournalTests.test_expired_appraisal_cannot_be_reserved_with_live_wallet_expiry) ... ok
+test_failed_transaction_does_not_consume_intent (test_journal.JournalTests.test_failed_transaction_does_not_consume_intent) ... ok
+test_frozen_deleted_redeployed_wallet_stays_quarantined (test_journal.JournalTests.test_frozen_deleted_redeployed_wallet_stays_quarantined) ... ok
+test_hash_chain_detects_sql_row_tampering (test_journal.JournalTests.test_hash_chain_detects_sql_row_tampering) ... ok
+test_host_status_flags_do_not_enable_authorization (test_journal.JournalTests.test_host_status_flags_do_not_enable_authorization) ... ok
+test_lower_target_refused (test_journal.JournalTests.test_lower_target_refused) ... ok
+test_missing_reopen_never_initializes (test_journal.JournalTests.test_missing_reopen_never_initializes) ... ok
+test_multisig_seqno_never_reused_after_expiry (test_journal.JournalTests.test_multisig_seqno_never_reused_after_expiry) ... ok
+test_restart_keeps_intent_and_reservations (test_journal.JournalTests.test_restart_keeps_intent_and_reservations) ... ok
+test_same_intent_cannot_use_a_new_slot (test_journal.JournalTests.test_same_intent_cannot_use_a_new_slot) ... ok
+test_same_wallet_slot_different_bytes (test_journal.JournalTests.test_same_wallet_slot_different_bytes) ... ok
+test_two_concurrent_attempts_only_one_commits (test_journal.JournalTests.test_two_concurrent_attempts_only_one_commits) ... ok
 test_absolute_depth_limit (test_multisig.MultisigDictionaryTests.test_absolute_depth_limit) ... ok
 test_label_length_bounds (test_multisig.MultisigDictionaryTests.test_label_length_bounds) ... ok
 test_leaf_and_fork_full_consumption (test_multisig.MultisigDictionaryTests.test_leaf_and_fork_full_consumption) ... ok
@@ -174,6 +211,17 @@ test_untrusted_host_display_forbidden (test_policy_offline.PolicyOfflineTests.te
 test_valid_diagnostic_never_authorizes_signing (test_policy_offline.PolicyOfflineTests.test_valid_diagnostic_never_authorizes_signing) ... ok
 test_wrong_chain_epoch_nonce (test_policy_offline.PolicyOfflineTests.test_wrong_chain_epoch_nonce) ... ok
 test_wrong_or_absent_role_source (test_policy_offline.PolicyOfflineTests.test_wrong_or_absent_role_source) ... ok
+test_changed_backend_and_missing_native_state (test_proofs.ProofTests.test_changed_backend_and_missing_native_state) ... ok
+test_deployment_and_lifecycle_state (test_proofs.ProofTests.test_deployment_and_lifecycle_state) ... ok
+test_large_public_boc_does_not_bypass_metadata_validation (test_proofs.ProofTests.test_large_public_boc_does_not_bypass_metadata_validation) ... ok
+test_native_exit_and_timeout (test_proofs.ProofTests.test_native_exit_and_timeout) ... ok
+test_pinned_boundary_and_historical_not_fresh (test_proofs.ProofTests.test_pinned_boundary_and_historical_not_fresh) ... ok
+test_request_digest_mode_and_verdict (test_proofs.ProofTests.test_request_digest_mode_and_verdict) ... ok
+test_stale_shard_and_future_target (test_proofs.ProofTests.test_stale_shard_and_future_target) ... ok
+test_substituted_full_target_and_anchor (test_proofs.ProofTests.test_substituted_full_target_and_anchor) ... ok
+test_cli_journal_provisioning_refuses_overwrite (test_session.SessionTests.test_cli_journal_provisioning_refuses_overwrite) ... ok
+test_native_state_enrollment_is_explicit_and_exclusive (test_session.SessionTests.test_native_state_enrollment_is_explicit_and_exclusive) ... ok
+test_session_derives_all_accounts_instead_of_host_verdicts (test_session.SessionTests.test_session_derives_all_accounts_instead_of_host_verdicts) ... ok
 test_image_changes_commitment (test_source_bundle.SourceBundleTests.test_image_changes_commitment) ... ok
 test_image_symlink_stays_rejected (test_source_bundle.SourceBundleTests.test_image_symlink_stays_rejected) ... ok
 test_unknown_extension_stays_rejected (test_source_bundle.SourceBundleTests.test_unknown_extension_stays_rejected) ... ok
@@ -207,6 +255,6 @@ test_unsigned_forms_refused (test_verification.VerificationTests.test_unsigned_f
 test_wrong_quorum_rejected_before_backend (test_verification.VerificationTests.test_wrong_quorum_rejected_before_backend) ... ok
 
 ----------------------------------------------------------------------
-Ran 207 tests in 0.408s
+Ran 255 tests in 0.474s
 
 OK

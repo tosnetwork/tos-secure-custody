@@ -37,7 +37,7 @@ The [evidence-gated roadmap](docs/ROADMAP.md) and [implementation status](IMPLEM
 |---|---|---|
 | HSM adapters | Explicit capability interface; experimental NetHSM Ed25519 transport; pinned-key signature verification; fail-closed PKCS#11 placeholder | Physical-device validation, production PKCS#11, hardware ML-DSA |
 | Offline hardware signer | Bounded offline request format, inspection CLI, host-label rejection, explicit signing-disable gate, hardware/firmware requirements | Device firmware, trusted display, physical approval, QR transport, custody signing |
-| Complete transaction parser | Strict BOC/Vault V1 parsing; highload and cold multisig inspection; optional real ML-DSA verification; native parser/signature comparisons | Other wallet profiles, authenticated state proofs, complete supported-profile acceptance |
+| Complete transaction parser | Strict BOC/Vault V1 parsing; real ML-DSA verification; native proof-backed batch/role appraisal; native parser/signature comparisons | Other wallet profiles, fresh custody deployment proof acceptance, complete supported-profile acceptance |
 | Device attestation | Session/key/intent-bound protocol design; cryptographically verified software fixtures; challenge replay and rollback tests | Actual TPM/DICE/secure-element evidence, hardware endorsements, durable verifier state |
 | Reproducible builds | Deterministic source packaging, content manifest, two-directory byte comparison, SHA-pinned checkout action | Hash-locked toolchains/dependencies, reproducible firmware/wheels, independent builder signatures |
 | Institutional attack acceptance | Software adversarial tests, mutation controls, local native PQ wallet-to-Vault scenarios | Hardware-in-the-loop attacks, full custody operational acceptance, physical attacks, independent expert review |
@@ -103,6 +103,11 @@ All example addresses, network IDs, timestamps and amounts are synthetic. The fi
 ## TOS integration baseline
 
 ### Local software verification and device-porting corpus
+
+[RFC 0005](docs/rfcs/0005-proof-backed-batch-and-journal.md) adds a separately
+provisioned native proof session, independent batch/role policy and durable
+reservations with external rollback checkpoints. `appraise-batch` keeps signing
+disabled. Historical proof checks do not establish a fresh custody deployment.
 
 See [local acceptance and reproduction](docs/LOCAL_ACCEPTANCE.md) for real ML-DSA
 verification commands, the pinned native wallet/Vault test runner and a language-neutral

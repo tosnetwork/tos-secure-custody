@@ -14,6 +14,14 @@ The native emulator build provenance is explicitly limited; see `docs/LOCAL_ACCE
 `real-signature-checks.json` records actual OpenSSL ML-DSA positive and negative checks
 against public test-key vectors. Neither report authenticates production chain state.
 
+RFC 0005 adds `state-proof-checks.json`: native verification of genuine historical
+PQ account proofs and wrong anchor/account/full-target/code/carrier controls.
+The fixture account is an elector, not a live custody deployment. Synthetic unit
+proof doubles are kept separate. The current native-conformance report also
+records a fresh pinned-source native build and three lifecycle/pauser probes.
+`setup-attempts.json` fingerprints initial failed/setup transcripts and records
+why those attempts were not counted as passing evidence.
+
 Do not edit a result into a pass. Regenerate it from the documented command. A result is not a
 production approval, a third-party review, a remote GitHub CI result or a funding authorization.
 

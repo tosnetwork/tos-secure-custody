@@ -1,0 +1,28 @@
+{
+  "artifact_hashes": {
+    "/private/tmp/tos-custody-native-build/lite-client/proof-verify/test-proof-verify-embedded": "7f513d8663b3907a50d440b7c83a9e41a4c9470a32c6c093142b6fdbd38a2cf2",
+    "/private/tmp/tos-custody-native-build/lite-client/proof-verify/tos-proof-verify": "ae37387f7412a9ebd16391bd4e6a0eaa31b227e1e4c3d4e31a752831bc392a15",
+    "/private/tmp/tos-custody-native-build/third-party/openssl/lib/libcrypto.a": "dadd5e645db08c769c2afed60c99e403c5c7546a0279d427bfd847b02a84cd3b",
+    "/private/tmp/tos-custody-native-build/third-party/secp256k1/lib/libsecp256k1.a": "42da1284684702e1103584103723b11c517a54d14d44c99bc0a5b247c33dea05",
+    "/private/tmp/tos-custody-native-build/third-party/sodium/lib/libsodium.a": "a0d2b4cfafd4e6d65372545ee1d129b58772566a327a2dd475f9596020859ba6"
+  },
+  "cmake": "cmake version 3.29.0",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "configuration": {
+    "CMAKE_AR": "/usr/bin/ar",
+    "CMAKE_BUILD_TYPE": "Release",
+    "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+    "CMAKE_C_COMPILER": "/usr/bin/clang",
+    "CMAKE_OSX_SYSROOT": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk",
+    "CMAKE_RANLIB": "/usr/bin/ranlib",
+    "TOS_PQ_V16_CANDIDATE": "ON",
+    "TOS_USE_ROCKSDB": "OFF",
+    "USE_QUIC": "OFF"
+  },
+  "embedded_proof_cases": 12,
+  "hermetic_dependency_closure": false,
+  "native_core_transcript_sha256": "a924565a1b936a0a0d0c30b8ef063a05f8f7c7bb5d244500c9f3228aaf8c4984",
+  "schema": "tos.custody.native-build.v1",
+  "source_digest": "dc23773b0835efe30fdd21118c8350c3a2b3e05eba9ed7bf664bca59d6a6e9a7",
+  "tos_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a"
+}
