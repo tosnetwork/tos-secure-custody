@@ -1,0 +1,7 @@
+{
+  "comparison": "identical source contents reconstructed in two paths with different filesystem mtimes",
+  "result": "PASS",
+  "schema": "tos.custody.source-reproducibility.v1",
+  "scope": "source archive only; not firmware, wheels, or independent-builder evidence",
+  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935"
+}

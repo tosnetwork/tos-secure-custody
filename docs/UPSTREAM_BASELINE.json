@@ -1,0 +1,12 @@
+{
+  "repository": "tosnetwork/tos",
+  "commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+  "purpose": "Pinned Treasury Vault V1 compatibility baseline; not a latest-main assertion",
+  "observed_sources": [
+    {"path": "doc/treasury-vault-v1.md", "git_blob_sha1": "5b966d93e5677215e8d15d11fa94f22838c36292"},
+    {"path": "test/treasury-vault/wire.py", "git_blob_sha1": "17498230d045a8275d542f99dfe26d0c2c7d0fcc"},
+    {"path": "test/auth-extensions/cells.py", "git_blob_sha1": "a2038cde8a5165ac21e84ae34d4f550299250d2c"}
+  ],
+  "native_conformance_executed": false,
+  "production_signing_enabled": false
+}

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tos-secure-custody"
+version = "0.1.0.dev0"
+description = "Experimental open and verifiable custody infrastructure for TOS; not production-ready"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
+dependencies = ["cryptography==46.0.4"]
+classifiers = ["Development Status :: 2 - Pre-Alpha", "Topic :: Security :: Cryptography"]
+
+[project.scripts]
+tos-custody = "tos_custody.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

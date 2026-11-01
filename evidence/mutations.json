@@ -1,0 +1,61 @@
+{
+  "controls": [
+    {
+      "baseline_passed": true,
+      "name": "domain-binding",
+      "target": "test_vault.VaultTests.test_wrong_domain",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "positive-payment",
+      "target": "test_vault.VaultTests.test_zero_payment",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "full-consumption",
+      "target": "test_vault.VaultTests.test_extra_reference",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "recipient-allowlist",
+      "target": "test_policy_offline.PolicyOfflineTests.test_substituted_recipient",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "local-signature-verification",
+      "target": "test_adapters.AdapterTests.test_wrong_key_signature_rejected",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "attestation-replay",
+      "target": "test_attestation.AttestationTests.test_replay",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "measurement-allowlist",
+      "target": "test_attestation.AttestationTests.test_unapproved_firmware",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "tls-hostname-verification",
+      "target": "test_adapters.AdapterTests.test_tls_verification_not_optional",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "untrusted-display",
+      "target": "test_policy_offline.PolicyOfflineTests.test_untrusted_host_display_forbidden",
+      "targeted_assertion_failed_after_mutation": true
+    }
+  ],
+  "hardware_testing": "NOT RUN",
+  "schema": "tos.custody.mutation-results.v1",
+  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935"
+}

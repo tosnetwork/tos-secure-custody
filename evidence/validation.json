@@ -1,0 +1,23 @@
+{
+  "cryptography": "46.0.4",
+  "errors": 0,
+  "evidence_level": "local software tests; synthetic fixtures and mocked HSM transport",
+  "failures": 0,
+  "not_run": [
+    "physical HSM",
+    "offline device firmware",
+    "ML-DSA hardware signing",
+    "TPM/DICE evidence verification",
+    "native TVM end-to-end integration",
+    "firmware reproducibility",
+    "independent security audit",
+    "GitHub Actions CI"
+  ],
+  "python": "3.14.6",
+  "recorded_at_utc": "2026-11-01T01:26:48.096431+00:00",
+  "schema": "tos.custody.validation.v1",
+  "skips": 0,
+  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935",
+  "successful": true,
+  "tests_run": 90
+}

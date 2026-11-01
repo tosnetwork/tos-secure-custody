@@ -1,0 +1,3 @@
+# Exact version, NOT a hash-locked or hermetic release environment.
+# Production toolchain and wheel hashes remain a tracked release gate.
+cryptography==46.0.4

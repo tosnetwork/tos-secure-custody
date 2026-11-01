@@ -1,0 +1,5 @@
+TOS Secure Custody
+Copyright 2026 TOS Secure Custody contributors
+
+Original bootstrap implementation. TOS and vendor source references are not
+vendored into this package. Third-party runtime dependencies retain their own licenses.

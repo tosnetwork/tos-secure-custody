@@ -1,0 +1,31 @@
+name: Custody reference checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: custody-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Install pinned test dependency
+        run: python3 -m pip install -r requirements-test.txt
+      - name: Unit and adversarial reference tests
+        run: python3 scripts/validate.py
+      - name: Checks also survive Python optimization
+        run: PYTHONPATH=src python3 -O -m unittest discover -s tests -v
+      - name: Guard sensitivity controls
+        run: python3 scripts/mutation_controls.py
+      - name: Deterministic source packaging
+        run: python3 scripts/check_reproducible.py
+      - name: Production signing remains blocked
+        run: python3 scripts/check_release_readiness.py --expect-blocked
+      - name: Whitespace hygiene
+        run: git diff --check

@@ -1,0 +1,41 @@
+{
+  "boc_sha256": "ca9571b20b4c4ca269ccb55fcbc959cb380654e2693a60638975ae35511e2589",
+  "body_cell_hash": "684ec6a42376078cd4fc985b4293ebc5dcad0eefcef302fe1a585cfde04b8901",
+  "opcode": "54560001",
+  "operation": "submit",
+  "outer_message": {
+    "body_by_reference": true,
+    "bounce": true,
+    "bounced": false,
+    "created_at": 0,
+    "created_lt": 0,
+    "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+    "forward_fee": 0,
+    "ihr_disabled": true,
+    "ihr_fee": 0,
+    "source": "0:2222222222222222222222222222222222222222222222222222222222222222",
+    "value_base_units": 100000000
+  },
+  "profile": "treasury-vault-v1/internal",
+  "query_id": 0,
+  "request": {
+    "deadline": 1793491500,
+    "domain": "54565031",
+    "epoch": 7,
+    "network_global_id": -777777,
+    "nonce": 42,
+    "payload": {
+      "amount_base_units": 1000000000,
+      "asset_id": "0000000000000000000000000000000000000000000000000000000000000000",
+      "kind": "payment",
+      "recipient": "0:3333333333333333333333333333333333333333333333333333333333333333",
+      "token_attachment_base_units": 0
+    },
+    "request_cell_hash": "c149a9287022e01f6a5f8801ac25c165dc4859997e1ea750bd1fac66505a6903",
+    "vault": "0:1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "root_cell_hash": "cf4fcfbe44eed2ef83597151ea22ace2fd1a16910aa522b4a06210785bafc7f8",
+  "schema": "tos.custody.inspection.v1",
+  "signing_authorized": false,
+  "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a"
+}
