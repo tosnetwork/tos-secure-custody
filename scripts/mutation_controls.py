@@ -12,6 +12,10 @@ import tempfile
 from source_bundle import ROOT, source_digest
 
 MUTATIONS = [
+    ("mldsa-backend-rejection", "verification.py", "if result.returncode != 0:", "if False:",
+     "test_verification.VerificationTests.test_backend_errors_and_timeout_fail_closed"),
+    ("mldsa-context-preserved", "verification.py", '"context-string:" + context', '"context-string:"',
+     "test_verification.VerificationTests.test_backend_preserves_pure_wallet_context"),
     ("domain-binding", "vault.py", "if domain != expected_domain:", "if False:",
      "test_vault.VaultTests.test_wrong_domain"),
     ("positive-payment", "vault.py", "if not amount or attachment >", "if attachment >",

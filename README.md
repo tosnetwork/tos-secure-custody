@@ -37,10 +37,10 @@ The [evidence-gated roadmap](docs/ROADMAP.md) and [implementation status](IMPLEM
 |---|---|---|
 | HSM adapters | Explicit capability interface; experimental NetHSM Ed25519 transport; pinned-key signature verification; fail-closed PKCS#11 placeholder | Physical-device validation, production PKCS#11, hardware ML-DSA |
 | Offline hardware signer | Bounded offline request format, inspection CLI, host-label rejection, explicit signing-disable gate, hardware/firmware requirements | Device firmware, trusted display, physical approval, QR transport, custody signing |
-| Complete transaction parser | Strict BOC/Vault V1 parsing; highload and cold multisig request/submission/relay inspection; exact signing messages; 64-member state and 12-signature shape checks | Other wallet profiles, real signature verification, authenticated state proofs, native conformance |
+| Complete transaction parser | Strict BOC/Vault V1 parsing; highload and cold multisig inspection; optional real ML-DSA verification; native parser/signature comparisons | Other wallet profiles, authenticated state proofs, complete supported-profile acceptance |
 | Device attestation | Session/key/intent-bound protocol design; cryptographically verified software fixtures; challenge replay and rollback tests | Actual TPM/DICE/secure-element evidence, hardware endorsements, durable verifier state |
 | Reproducible builds | Deterministic source packaging, content manifest, two-directory byte comparison, SHA-pinned checkout action | Hash-locked toolchains/dependencies, reproducible firmware/wheels, independent builder signatures |
-| Institutional attack acceptance | Executable software adversarial tests, seeded parser smoke inputs, targeted guard-removal controls, hardware/native acceptance matrix | Hardware-in-the-loop attacks, native wallet-to-Vault execution, physical attacks, independent expert review |
+| Institutional attack acceptance | Software adversarial tests, mutation controls, local native PQ wallet-to-Vault scenarios | Hardware-in-the-loop attacks, full custody operational acceptance, physical attacks, independent expert review |
 
 **“Complete parsing” is a release requirement, not an assertion that this bootstrap supports every
 TOS transaction.** It fully consumes the explicitly supported Vault schemas and refuses unknown
@@ -73,7 +73,7 @@ Attestation + reproducible builds -> supporting evidence, not payment authority
 ```
 
 The architecture is the target, not a diagram of an already deployed system. The current command line
-only inspects requests and performs diagnostic policy comparisons. It cannot sign or broadcast.
+inspects requests, verifies signatures against supplied keys and performs diagnostic policy comparisons. It cannot sign or broadcast.
 The low-level NetHSM adapter is a protocol prototype and must not be exposed as an unrestricted service.
 
 ## Quick start
@@ -101,6 +101,14 @@ All example addresses, network IDs, timestamps and amounts are synthetic. The fi
 `-777777`; it is not a claim about any deployed TOS network. No example includes a production secret.
 
 ## TOS integration baseline
+
+### Local software verification and device-porting corpus
+
+See [local acceptance and reproduction](docs/LOCAL_ACCEPTANCE.md) for real ML-DSA
+verification commands, the pinned native wallet/Vault test runner and a language-neutral
+parser corpus for future firmware. Signature validity against supplied keys does not
+authenticate a wallet or chain state. Python remains the reference implementation;
+no hardware firmware or protected key operation is delivered by these checks.
 
 The initial wire profile is pinned to TOS commit
 `def735f3ad9c57a4b8fc8de43537075baec2271a`, the Treasury Vault V1 merge.

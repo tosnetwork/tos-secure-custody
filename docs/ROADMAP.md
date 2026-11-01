@@ -133,3 +133,10 @@ on RFC 0003 and remains inspection-only. Full 64-member/12-signature-shaped inpu
 software tests, not hardware, genuine ML-DSA verification or authenticated state.
 S1 remains open pending independently authenticated finality/code/state, native
 wallet-to-Vault execution, cryptographic verification and independent review.
+
+## Local verification increment
+
+Optional diagnostic ML-DSA verification and local native wallet-to-Vault parser
+comparisons are now available. See [local acceptance](LOCAL_ACCEPTANCE.md) for the
+exact scope, artifact provenance and portable firmware corpus. Authenticated
+state/finality and full S1 acceptance remain outstanding.

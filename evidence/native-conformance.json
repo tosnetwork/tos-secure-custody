@@ -1,0 +1,26 @@
+{
+  "artifacts_sha256": {
+    "/Users/tomisetsu/tos/build/crypto/fift": "c31d1275ad17f129d59e24eeeaae87fa98518d2030c26131a5cb0fe2f7d6a686",
+    "/Users/tomisetsu/tos/build/crypto/func": "ba0789550415cbbec63e9d322cd03c4642d8631f02543727f505542cef5d45fb",
+    "/Users/tomisetsu/tos/build/emulator/libemulator.dylib": "5ce1406955f689250d59c839ae84209f694dd68e892eba3fb322f50078a5abeb",
+    "/Users/tomisetsu/tos/build/tol/tol": "53fa32d9cb089ee4b7e98e10ac1b7f2c27514318a0adf97e02709c0c198741a3",
+    "/private/tmp/tos-custody-signer-build/test-pq-contracts-sign": "22985954cdbae010495e52193065b6b7f7e907ffdaf8c358877e1f47bf026a06"
+  },
+  "baseline_tests": 65,
+  "build_provenance": "existing local binaries; not a reproduced pinned emulator build",
+  "comparisons": {
+    "highload_preimages": 17,
+    "highload_signatures": 17,
+    "multisig_submissions": 7
+  },
+  "custody_source_digest": "47478cfce7aa5e2bf25c0f87eedf5e05fc3edad39856e43c4458d200c4b0c0f6",
+  "errors": 0,
+  "failures": 0,
+  "hardware_tested": false,
+  "integrated_tests": 7,
+  "openssl": "OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)",
+  "schema": "tos.custody.native-conformance.v1",
+  "skips": 0,
+  "state_authenticated": false,
+  "tos_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a"
+}
