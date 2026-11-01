@@ -22,6 +22,10 @@ A key that cannot be exported can still sign an attacker-selected transaction. P
 authorizing intent are separate requirements. No single vendor, workstation, administrator, RPC
 endpoint, build server, or attestation service should silently become the sole withdrawal authority.
 
+## Roadmap
+
+![TOS Secure Custody roadmap](ROADMAP.PNG)
+
 ## Six workstreams
 
 | Workstream | Included in this bootstrap | Not yet delivered |
