@@ -1,0 +1,12 @@
+EMBEDDED_PROOF_CASE real-historical-verified PASS
+EMBEDDED_PROOF_CASE identical-core-result PASS
+EMBEDDED_PROOF_CASE missing-material-refused PASS
+EMBEDDED_PROOF_CASE duplicate-singleton-refused PASS
+EMBEDDED_PROOF_CASE malformed-chain-refused PASS
+EMBEDDED_PROOF_CASE invalid-clock-refused PASS
+EMBEDDED_PROOF_CASE capacity-failure-empty PASS
+EMBEDDED_PROOF_CASE live-verified-with-state PASS
+EMBEDDED_PROOF_CASE live-next-head-bound PASS
+EMBEDDED_PROOF_CASE live-rollback-clears-result PASS
+EMBEDDED_PROOF_CASE live-expiry-clears-result PASS
+EMBEDDED_PROOF_CASE live-state-capacity-failure PASS

@@ -1,0 +1,89 @@
+{
+  "attempts": [
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "-- Could NOT find ccache",
+        "-- Could NOT find Readline (missing: READLINE_INCLUDE_DIR READLINE_LIBRARY) ",
+        "-- Could NOT find Readline (this is NOT an error)",
+        "CMake Error at /opt/homebrew/Cellar/cmake/3.29.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:230 (message):",
+        "  Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the"
+      ],
+      "sha256": "dbc259993f6f0c0193b69ff3c4c9132f153ea681b036bd81b4cd59827eb8993b",
+      "transcript": "tos-custody-configure.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "/tmp/tos-custody-pinned/third-party/blst/src/vect.h:417:11: fatal error: 'stdlib.h' file not found",
+        "make[3]: *** [third-party/blst/libblst.a] Error 1",
+        "make[2]: *** [CMakeFiles/blst.dir/all] Error 2",
+        "make[1]: *** [crypto/CMakeFiles/func.dir/rule] Error 2",
+        "make: *** [func] Error 2"
+      ],
+      "sha256": "ca7c0060612714f59157a40ddfc532258037e5fcea2fa4db18a692ca10743a5f",
+      "transcript": "tos-custody-build.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "/opt/homebrew/Cellar/llvm@20/20.1.8/bin/../include/c++/v1/__random/clamp_to_integral.h:47:58: error: use of undeclared identifier 'INFINITY'",
+        "make[3]: *** [third-party/abseil-cpp/absl/strings/CMakeFiles/absl_cordz_functions.dir/internal/cordz_functions.cc.o] Error 1",
+        "make[2]: *** [third-party/abseil-cpp/absl/strings/CMakeFiles/absl_cordz_functions.dir/all] Error 2",
+        "make[1]: *** [crypto/CMakeFiles/func.dir/rule] Error 2",
+        "make: *** [func] Error 2"
+      ],
+      "sha256": "28c2ebc2478360bcfc7c437f8eb8d93b65e723db4f5e4675fcc7588916675aaf",
+      "transcript": "tos-custody-build-sdk.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "clang++: error: no such file or directory: '&&'",
+        "clang++: error: no such file or directory: 'dsymutil'",
+        "clang++: error: no such file or directory: 'generate_common'",
+        "make[3]: *** [tl/generate/generate_common] Error 1",
+        "make[2]: *** [tl/generate/CMakeFiles/generate_common.dir/all] Error 2",
+        "make[1]: *** [crypto/CMakeFiles/func.dir/rule] Error 2",
+        "make: *** [func] Error 2"
+      ],
+      "sha256": "960a5f052f79b92e545cc1d12a53b7761238a3701c5f3b89cc3bc7e2fcbfeb78",
+      "transcript": "tos-custody-build-apple.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "clang++: error: linker command failed with exit code 1 (use -v to see invocation)",
+        "make[3]: *** [tl/generate/generate_common] Error 1",
+        "make[2]: *** [tl/generate/CMakeFiles/generate_common.dir/all] Error 2",
+        "make[1]: *** [crypto/CMakeFiles/func.dir/rule] Error 2",
+        "make: *** [func] Error 2"
+      ],
+      "sha256": "37f4827c695b8fc7962263b7b39fc7cde81aef9c03cf8ef397f1ba3007c592e1",
+      "transcript": "tos-custody-build-release.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "clang++: error: linker command failed with exit code 1 (use -v to see invocation)",
+        "make[3]: *** [crypto/tlbc] Error 1",
+        "make[2]: *** [crypto/CMakeFiles/tlbc.dir/all] Error 2",
+        "make[1]: *** [crypto/CMakeFiles/func.dir/rule] Error 2",
+        "make: *** [func] Error 2"
+      ],
+      "sha256": "410537ca2a1be88c0d2b231a908e5bd879217293ce6cb5a77368c7c0ec517c9c",
+      "transcript": "tos-custody-build-complete.log"
+    },
+    {
+      "classification": "failed/setup attempt; not counted as passing acceptance",
+      "diagnostics": [
+        "AssertionError: False is not true : frozen: {'success': False, 'error': 'Emulate transaction failed: [Error : -669 : cannot serialize new transaction for smart contract 7B91F8D0E80A68DB652D4F59CDCAA1932D70A936E16F2443F6CF9D80D528BD4A]', 'external_not_accepted': False}",
+        "FAILED (failures=1)"
+      ],
+      "sha256": "d9a1bab3cd5e3e8655c8a2253699c3cc278f85535d044f51c97c8b3bacd7d6dd",
+      "transcript": "custody-s1-native-draft2.log"
+    }
+  ],
+  "schema": "tos.custody.setup-attempts.v1",
+  "transport_mutation_note": "An initial last-byte TL change was accepted; final control corrupts the constructor. Only final actual refusal is counted."
+}

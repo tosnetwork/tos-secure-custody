@@ -23,8 +23,8 @@ def _hash(cell):
     return cell.commitment(max_depth=96)[1].hex()
 
 
-def _dictionary(root, *, limit):
-    """Hashmap 256, all three HmLabel encodings; bounded even for shared DAGs."""
+def _dictionary(root, *, limit, key_bits=256):
+    """Ref-valued Hashmap (default 256 bits); bounded even for shared DAGs."""
     entries = {}
     visited = 0
 
@@ -67,7 +67,7 @@ def _dictionary(root, *, limit):
             walk(right, remaining - 1, (key << 1) | 1)
 
     if root is not None:
-        walk(root, 256, 0)
+        walk(root, key_bits, 0)
     return entries
 
 

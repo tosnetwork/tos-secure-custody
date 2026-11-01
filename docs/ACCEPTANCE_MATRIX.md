@@ -28,15 +28,15 @@ REF success never substitutes for NATIVE, HIL or LAB evidence.
 | A20 | Different source paths/mtimes | Identical source TAR bytes | REF source packaging only |
 | A21 | Business host root + business key abuse | Guardian and Vault prevent unilateral treasury payout | NATIVE role-separation scenarios passed locally; host compromise/HIL outstanding |
 | A22 | Real PQ role-wallet request and cold quorum | Exact signed messages execute; insufficient quorum fails | NATIVE pinned local wallet/cold suites passed; HIL outstanding |
-| A23 | Malicious RPC state/finality and code substitution | Independent proof verification rejects | NATIVE NOT IMPLEMENTED |
+| A23 | Malicious RPC state/finality and code substitution | Independent proof verification rejects | Native proof adapter and genuine historical proof/tamper controls pass; fresh custody deployment acceptance open |
 | A24 | Device shows A but signs B | Hardware confirmation cannot authorize substituted preimage | HIL NOT RUN |
-| A25 | Policy/check/sign TOCTOU and process restart | Approval invalidated or exact state/intent preserved | NATIVE + HIL NOT RUN |
+| A25 | Policy/check/sign TOCTOU and process restart | Approval invalidated or exact state/intent preserved | REF bound appraisal + atomic journal/expiry/restart tests; NATIVE restart probe; full signing/HIL outstanding |
 | A26 | Token bounce/receipt/retry amplification | No unauthorized budget restoration or duplicate payout | NATIVE Vault suite and real Token transfer passed locally; complete operational acceptance outstanding |
 | A27 | Compromised hot role blocks recovery | Exact cold/pauser rules and delay preserved | NATIVE delay/pause/recovery scenarios passed locally; HIL outstanding |
 | A28 | Device loss and backup/restore rollback | Recovery maintains quorum, replay state and cold authority | HIL NOT RUN |
 | A29 | Malicious update/unsigned firmware/rollback | Device rejects or verifier blocks it | HIL NOT RUN |
 | A30 | Side-channel/fault-injection/debug/chip substitution | Meets declared physical threat class | LAB NOT RUN |
-| A31 | Concurrent institutional spending and outages | Durable limits/idempotency and bounded availability | NATIVE + HIL NOT IMPLEMENTED |
+| A31 | Concurrent institutional spending and outages | Durable limits/idempotency and bounded availability | REF SQLite atomic reservations, concurrency and independent-checkpoint recovery guards; live operational/HIL acceptance open |
 | A32 | Reproduce actual firmware independently | Exact binary match and running measurement verification | NOT IMPLEMENTED |
 
 ## Additional S1 reference coverage

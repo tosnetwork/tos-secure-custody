@@ -4,7 +4,7 @@ import json
 
 BLOCKERS = [
     "Complete wallet authentication is missing: diagnostic ML-DSA verification does not authenticate supplied keys or state",
-    "Authenticated finality, code-hash and role/state proof verification is not implemented",
+    "Native proof/batch adapters exist; fresh custody deployment proof acceptance and independent trust-anchor provisioning remain outstanding",
     "No post-quantum hardware signer has been qualified",
     "Trusted-display firmware and physical confirmation have not been tested",
     "Production hardware attestation and durable anti-replay state are not implemented",

@@ -45,7 +45,7 @@ before importing its test code; the checkout and build are explicit operator inp
 cmake -S /path/to/pinned-tos/test/pq-contracts -B /path/to/test-signer-build \
   -DCMAKE_BUILD_TYPE=Release
 cmake --build /path/to/test-signer-build -j4
-python3 scripts/check_native_custody.py --tos /path/to/pinned-tos \
+python3 scripts/check_native_custody.py --tos /path/to/pinned-tos --require-pinned-build \
   --build /path/to/tos-build --signer /path/to/test-signer-build/test-pq-contracts-sign \
   --openssl /absolute/path/to/openssl --report /path/to/native-report.json
 ```
@@ -53,16 +53,17 @@ python3 scripts/check_native_custody.py --tos /path/to/pinned-tos \
 The build must contain `crypto/func`, `crypto/fift` and an emulator shared library.
 The runner first executes 44 upstream Vault scenarios (including actual Token wallets)
 and all 21 upstream PQ wallet/cold Vault scenarios unchanged.
-It then repeats seven supported integration scenarios with custody parser hooks:
-17 highload request/preimage/signature comparisons and seven multisig submission
-comparisons in the recorded run. Signatures are independently verified with OpenSSL;
+It then repeats seven supported integration scenarios with custody parser hooks
+and three lifecycle/real-PQ-pauser scenarios: 21 highload request/preimage/signature
+comparisons and seven multisig submission comparisons in the recorded run.
+Signatures are independently verified with OpenSSL;
 the native suites also check PQ opcode execution, emitted messages, role separation,
 wrong-key rejection, old quorum, replay, delayed governance and payout state.
 
 `evidence/native-conformance.json` records exact source digest and binary hashes.
-The local emulator/compiler binaries were existing artifacts, not rebuilt from the
-pinned checkout. This establishes tested source/binary behavior, not reproducible
-emulator provenance. Native execution is currently a separate local acceptance command;
+The current local emulator/compiler binaries were built from the pinned checkout,
+and their configured source path and CMake cache digest are recorded. Dependencies
+and the host SDK/toolchain are not hermetically locked. Native execution is currently a separate local acceptance command;
 the ordinary GitHub job does not silently count it as executed.
 
 ## Firmware-porting contract
@@ -84,10 +85,10 @@ budget, display/buttons, boot/update boundary and protected signing API are stil
 
 ## Remaining local and external dependencies
 
-S1 stays open: a trusted network checkpoint, finality verification, account code/state
-proofs and authenticated key discovery are still missing. Durable approval/spend state
-also needs a specified authorization and recovery model before it can protect funds.
-No arbitrary RPC JSON is accepted as authenticated state in this increment.
+RFC 0005 adds native finality/account proof integration, code/data binding and
+durable conservative reservations. S1 stays open pending fresh custody-deployment
+proof acceptance from an independently provisioned anchor, settlement/recovery
+acceptance and non-author review. No arbitrary RPC JSON is accepted as a verdict.
 
 The real HSM, protected PQ key generation/signing, device firmware, trusted display,
 physical approval, hardware attestation, firmware reproducibility and physical attack
