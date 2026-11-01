@@ -1,5 +1,7 @@
 # TOS Secure Custody
 
+![TOS+ hardware wallet concept](TOSPlus.png)
+
 **Open and verifiable custody infrastructure for TOS. Advancing post-quantum hardware custody.**
 
 > **Experimental / inspection-only. Do not use with real funds.**
