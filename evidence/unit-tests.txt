@@ -207,6 +207,6 @@ test_unsigned_forms_refused (test_verification.VerificationTests.test_unsigned_f
 test_wrong_quorum_rejected_before_backend (test_verification.VerificationTests.test_wrong_quorum_rejected_before_backend) ... ok
 
 ----------------------------------------------------------------------
-Ran 207 tests in 0.393s
+Ran 207 tests in 0.408s
 
 OK
