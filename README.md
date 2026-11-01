@@ -1,7 +1,5 @@
 # TOS Secure Custody
 
-![TOS+ hardware wallet concept](TOSPlus.png)
-
 **Open and verifiable custody infrastructure for TOS. Advancing post-quantum hardware custody.**
 
 > **Experimental / inspection-only. Do not use with real funds.**
@@ -23,6 +21,8 @@ and remaining gaps so institutions can independently verify the actual security 
 A key that cannot be exported can still sign an attacker-selected transaction. Protecting keys and
 authorizing intent are separate requirements. No single vendor, workstation, administrator, RPC
 endpoint, build server, or attestation service should silently become the sole withdrawal authority.
+
+![TOS+ hardware wallet concept](TOSPlus.png)
 
 ## Roadmap
 
