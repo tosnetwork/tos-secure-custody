@@ -22,6 +22,8 @@ A key that cannot be exported can still sign an attacker-selected transaction. P
 authorizing intent are separate requirements. No single vendor, workstation, administrator, RPC
 endpoint, build server, or attestation service should silently become the sole withdrawal authority.
 
+![TOS+ hardware wallet concept](TOSPlus.png)
+
 ## Roadmap
 
 ![TOS Secure Custody roadmap](ROADMAP.PNG)
