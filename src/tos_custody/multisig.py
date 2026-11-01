@@ -199,7 +199,7 @@ def inspect_multisig(raw, *, context, form="request", state_raw=None):
     relay_query = None
     signature_entries = None
     if form == "relay":
-        relay, request = _internal(root, outbound=False)
+        relay, request = _internal(root, outbound=False, max_depth=LIMITS["max_depth"])
         if relay["destination"] != account:
             raise CustodyError("relay destination differs from contextual multisig account")
     if form != "request":

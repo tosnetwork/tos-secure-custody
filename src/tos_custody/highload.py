@@ -6,7 +6,7 @@ It never verifies a signature, authenticates state, checks replay, or authorizes
 """
 from hashlib import sha256
 
-from .boc import Cell, parse_boc
+from .boc import MAX_DEPTH, Cell, parse_boc
 from .errors import CustodyError
 from .vault import UPSTREAM_COMMIT, decode_body
 
@@ -19,7 +19,7 @@ CHUNK_BYTES = 127
 FORMS = ("request", "submission", "relay")
 
 
-def _internal(cell: Cell, *, outbound: bool) -> tuple[dict, Cell]:
+def _internal(cell: Cell, *, outbound: bool, max_depth=MAX_DEPTH) -> tuple[dict, Cell]:
     """Decode the full supported message; never treat a claimed sender as proof."""
     s = cell.slice()
     if s.uint(1) != 0:
@@ -52,7 +52,8 @@ def _internal(cell: Cell, *, outbound: bool) -> tuple[dict, Cell]:
         "ihr_disabled": ihr_disabled, "bounce": bounce, "bounced": bounced,
         "extra_flags": extra_flags, "forward_fee": forward_fee,
         "created_lt": created_lt, "created_at": created_at,
-        "body_by_reference": by_reference, "message_cell_hash": cell.hash.hex(),
+        "body_by_reference": by_reference,
+        "message_cell_hash": cell.commitment(max_depth=max_depth)[1].hex(),
     }, body
 
 

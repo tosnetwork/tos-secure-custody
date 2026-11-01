@@ -113,6 +113,7 @@ test_context_binding (test_multisig.MultisigTests.test_context_binding) ... ok
 test_context_boundaries (test_multisig.MultisigTests.test_context_boundaries) ... ok
 test_context_type_and_schema (test_multisig.MultisigTests.test_context_type_and_schema) ... ok
 test_crc_index_encoding (test_multisig.MultisigTests.test_crc_index_encoding) ... ok
+test_deep_signature_dictionary_relay (test_multisig.MultisigTests.test_deep_signature_dictionary_relay) ... ok
 test_empty_or_overlimit_signatures (test_multisig.MultisigTests.test_empty_or_overlimit_signatures) ... ok
 test_every_truncation (test_multisig.MultisigTests.test_every_truncation) ... ok
 test_exact_prechange_quorum (test_multisig.MultisigTests.test_exact_prechange_quorum) ... ok
@@ -198,6 +199,6 @@ test_wrong_domain (test_vault.VaultTests.test_wrong_domain) ... ok
 test_zero_payment (test_vault.VaultTests.test_zero_payment) ... ok
 
 ----------------------------------------------------------------------
-Ran 198 tests in 0.537s
+Ran 199 tests in 0.355s
 
 OK

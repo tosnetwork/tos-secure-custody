@@ -349,6 +349,25 @@ class MultisigTests(unittest.TestCase):
         self.reject(extended(submit(), bit=True), "submission")
         self.reject(extended(submit(), ref=True), "submission")
 
+    def test_deep_signature_dictionary_relay(self):
+        entries = {identifier: stored_signature()
+                   for identifier in [0] + [1 << i for i in range(11)]}
+        submission = submit(entries=entries)
+        relay = message(content=submission, source=RELAYER, destination=COLD)
+        self.assertEqual(submission.commitment(max_depth=96)[0], 33)
+        self.assertEqual(relay.commitment(max_depth=96)[0], 34)
+        standalone = self.inspect(submission, "submission")
+        wrapped = self.inspect(relay, "relay")
+        self.assertEqual(len(wrapped["signatures"]), 12)
+        self.assertEqual(wrapped["signatures"], standalone["signatures"])
+        self.assertEqual(wrapped["signing_message_hex"], standalone["signing_message_hex"])
+        self.assertEqual(wrapped["unsigned_relay"]["message_cell_hash"],
+                         relay.commitment(max_depth=96)[1].hex())
+        # The shared decoder keeps the original bound unless a profile opts in.
+        from tos_custody.highload import _internal
+        with self.assertRaises(CustodyError):
+            _internal(relay, outbound=False)
+
     def test_relay_account_binding(self):
         self.reject(message(content=submit(), source=RELAYER, destination=VAULT), "relay")
         out = self.inspect(message(content=submit(), source=RELAYER, destination=COLD), "relay")

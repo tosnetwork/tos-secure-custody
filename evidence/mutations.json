@@ -163,8 +163,7 @@
       "targeted_assertion_failed_after_mutation": true
     }
   ],
-  "execution": "Two sequential groups (14 + 13) with unchanged runner/source digest; earlier long invocations timed out and are not counted as passes.",
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.mutation-results.v1",
-  "source_digest": "30b7dbccdc34ff3b25af70a8791439144a103764e7b8c9431647c59f7135ae68"
+  "source_digest": "fb0e0220d7b12b3f5815de2ee487d859ac1942541b9bdb86ef511e7592f3a7fd"
 }

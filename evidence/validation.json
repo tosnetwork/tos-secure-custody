@@ -12,11 +12,11 @@
     "firmware reproducibility",
     "independent security audit"
   ],
-  "python": "3.13.5",
-  "recorded_at_utc": "2026-11-01T02:27:02.192886+00:00",
+  "python": "3.14.6",
+  "recorded_at_utc": "2026-11-01T03:41:19.563593+00:00",
   "schema": "tos.custody.validation.v1",
   "skips": 0,
-  "source_digest": "30b7dbccdc34ff3b25af70a8791439144a103764e7b8c9431647c59f7135ae68",
+  "source_digest": "fb0e0220d7b12b3f5815de2ee487d859ac1942541b9bdb86ef511e7592f3a7fd",
   "successful": true,
-  "tests_run": 198
+  "tests_run": 199
 }
