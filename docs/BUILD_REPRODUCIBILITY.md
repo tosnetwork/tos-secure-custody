@@ -5,7 +5,7 @@
 The bootstrap includes a deterministic **source TAR**, not a firmware build or a hermetic Python
 runtime. For identical source contents, the builder sorts paths, normalizes archive ownership,
 permissions and timestamp, uses an uncompressed USTAR container and includes a SHA-256 content manifest.
-It refuses symlinks and unrecognized file types. Build/cache/Git directories are excluded.
+It includes PNG documentation images (case-insensitive extension), and refuses symlinks and unknown file types. Build/cache/Git directories are excluded.
 
 ```sh
 python3 scripts/source_bundle.py --output dist/tos-secure-custody-source.tar
@@ -23,8 +23,7 @@ a new snapshot. The `source_digest` in test reports excludes `evidence/` to avoi
 Python and the operating-system image are not hermetically built or independently reproduced.
 `cryptography==46.0.4` and the build backend version are pinned by version but are not a hash-locked,
 vendor-audited dependency closure. No wheel, firmware binary, FPGA image or hardware BOM is released.
-The CI workflow has a full-SHA checkout action and read-only repository permissions, but has not run
-in GitHub during this preparation. These limits prohibit a production release claim.
+The CI workflow has a full-SHA checkout action and read-only repository permissions, with revision-specific GitHub results; inspect the exact commit checks separately. These limits prohibit a production release claim.
 
 ## Production build acceptance
 
@@ -43,3 +42,7 @@ post-quantum migration plan. A mutable container tag or a green hosted-CI badge 
 
 An exported bundle also supports `python3 scripts/verify_source_manifest.py`. This checks content
 integrity only; authenticate the archive digest through a trusted independent release channel.
+
+`SOURCE-MANIFEST.json` is generated in each exported TAR. A moving Git checkout does not
+carry a stale bootstrap manifest. Verify an extracted export before rerunning tests, because
+regenerating evidence changes the snapshot. Image bytes are hashed but are not executed or decoded.

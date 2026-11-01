@@ -9,6 +9,9 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
   and rejection of hidden/trailing/unreachable/exotic data.
 - All nine pinned Treasury Vault V1 control bodies, native/Token payment payloads,
   asset/role/unpause management payloads, and the supported internal-message envelope.
+- PQ highload Vault-only request/submission/relay inspection, 1..16 fixed-value actions in execution order,
+  exact 32-byte signing message/context, canonical signature shape (NOT cryptographic verification),
+  and two frozen vectors reproduced with the pinned upstream Python codec. See RFC 0003.
 - An inspection-only CLI and offline format that reject host-supplied display labels and secret fields.
 - Diagnostic payment appraisal against independently supplied policy inputs. It is not authentication.
 - An experimental NetHSM Ed25519 adapter with TLS validation, pinned public-key verification,
@@ -22,7 +25,7 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 
 | Requirement | Status | Blocking reason |
 |---|---|---|
-| Full role-wallet transaction parsing | BLOCKED | External wallet envelopes, action batches and exact signing preimages are not implemented |
+| Full role-wallet transaction parsing | PARTIAL / BLOCKED | Highload reference inspection exists; cold multisig/other profiles, authenticated state and native conformance remain missing |
 | Authenticated state and finality | BLOCKED | No trusted light-client/state-proof implementation or native conformance run |
 | Native custody end-to-end | NOT RUN | No TOS native emulator/toolchain was available in the preparation environment |
 | Physical NetHSM | NOT RUN | No device/credentials were available; no network request was made to an HSM |
@@ -33,14 +36,17 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 | Durable verifier/spend state | NOT IMPLEMENTED | Process-local fixture replay state cannot survive restarts or backup rollback |
 | Firmware/toolchain reproducibility | NOT IMPLEMENTED | Current reproducibility covers a fixed source snapshot only |
 | Independent audit | NOT RUN | Local self-tests are not third-party approval |
-| GitHub publication | NOT PERFORMED | Repository creation was not exposed by the connected tool |
-| GitHub Actions | NOT RUN | Workflow is authored but has not executed remotely |
+| GitHub publication | PUBLISHED | The independent repository exists; changes require review before merge |
+| GitHub Actions | REVISION-SPECIFIC | Consult the exact PR/commit checks; local reports are not remote CI approval |
 
 ## Non-negotiable boundary
 
 `OfflineSigner.sign()` and `verify_hardware()` deliberately reject all requests. Do not remove these
 gates merely to make a demo look complete. Replacing them requires implementing the missing boundary,
 adding native and hardware tests, and obtaining an independent review of the exact source revision.
+
+The highload parser never verifies ML-DSA signatures or authenticates a wallet, state, freshness or replay status.
+Its new offline schema cannot enter the old single-payment diagnostic policy path. S1 is not complete.
 
 The software fixture uses Ed25519 only for testing the attestation protocol. It does not implement,
 emulate, or stand in for post-quantum hardware. The NetHSM prototype advertises Ed25519 only and

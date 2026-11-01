@@ -26,13 +26,16 @@ endpoint, build server, or attestation service should silently become the sole w
 
 ![TOS Secure Custody roadmap](ROADMAP.PNG)
 
+Concept illustration only: depicted hardware and dates are not release commitments.
+The [evidence-gated roadmap](docs/ROADMAP.md) and [implementation status](IMPLEMENTATION_STATUS.md) are authoritative.
+
 ## Six workstreams
 
 | Workstream | Included in this bootstrap | Not yet delivered |
 |---|---|---|
 | HSM adapters | Explicit capability interface; experimental NetHSM Ed25519 transport; pinned-key signature verification; fail-closed PKCS#11 placeholder | Physical-device validation, production PKCS#11, hardware ML-DSA |
 | Offline hardware signer | Bounded offline request format, inspection CLI, host-label rejection, explicit signing-disable gate, hardware/firmware requirements | Device firmware, trusted display, physical approval, QR transport, custody signing |
-| Complete transaction parser | Strict ordinary-cell BOC parser; all nine pinned Vault V1 entry points; payment and management payloads; full supported internal-message envelope | External wallet envelopes, wallet signing preimages/actions, authenticated state proofs, native differential conformance |
+| Complete transaction parser | Strict BOC/Vault V1 parsing; bounded PQ highload request, submission and relay inspection; exact signing message/context; all 1..16 supported actions | PQ cold multisig and other wallet profiles, signature verification, authenticated state proofs, native conformance |
 | Device attestation | Session/key/intent-bound protocol design; cryptographically verified software fixtures; challenge replay and rollback tests | Actual TPM/DICE/secure-element evidence, hardware endorsements, durable verifier state |
 | Reproducible builds | Deterministic source packaging, content manifest, two-directory byte comparison, SHA-pinned checkout action | Hash-locked toolchains/dependencies, reproducible firmware/wheels, independent builder signatures |
 | Institutional attack acceptance | Executable software adversarial tests, seeded parser smoke inputs, targeted guard-removal controls, hardware/native acceptance matrix | Hardware-in-the-loop attacks, native wallet-to-Vault execution, physical attacks, independent expert review |
@@ -80,6 +83,7 @@ python3 -m venv .venv
 . .venv/bin/activate
 python3 -m pip install -r requirements-test.txt
 PYTHONPATH=src python3 -m tos_custody status
+PYTHONPATH=src python3 -m tos_custody inspect-bundle examples/pq-highload.offline.json
 PYTHONPATH=src python3 -m tos_custody inspect-bundle examples/native-payment.offline.json
 PYTHONPATH=src python3 -m tos_custody check-bundle examples/native-payment.offline.json \
   --policy examples/diagnostic-policy.json --now 1793491200
@@ -117,25 +121,19 @@ Start with the [project charter](docs/PROJECT_CHARTER.md), [threat model](docs/T
 The [hardware requirements](docs/HARDWARE_REQUIREMENTS.md) describe what “open” and “verifiable”
 must mean at each layer rather than treating open source as a security certificate.
 
-## Publishing this standalone project
+## Development and publication
 
-This package is ready to initialize an independent repository. It does not modify `tosnetwork/tos`.
-The preparation environment could read and edit existing GitHub repositories but did not expose
-repository creation; the target returned HTTP 404. No remote publication is claimed by this package.
+This project is published at `tosnetwork/tos-secure-custody`. It does not modify `tosnetwork/tos`.
+The original publication script is retained for independent bootstrap exports and deliberately
+refuses an existing target; do not rerun it against this already published repository.
 
-After reviewing the files, use your own authenticated GitHub CLI account with permission to create
-repositories in `tosnetwork`:
+The [PQ highload inspection profile](docs/rfcs/0003-pq-highload-inspection.md) advances S1 without
+claiming to complete it. It is internally relayed, not an external-message wallet. Signature-shaped
+bytes are **not verified signatures**; all inspection results keep `signing_authorized=false`.
 
-```sh
-bash scripts/publish_github.sh --public
-python3 scripts/publish_issues.py
-```
-
-The first command refuses an existing local Git repository or accessible remote target and never
-force-pushes. It needs an existing Git author configuration. The second creates one epic and six
-English workstream issues, avoiding exact-title duplicates. Neither command was executed against
-GitHub during bootstrap preparation. Organization access controls, rulesets, required reviews,
-security reporting and release ownership remain administrator setup tasks.
+Use branches and reviewed pull requests. Organization access controls, required independent reviews,
+security reporting and release ownership remain administrator responsibilities. Source manifests are
+generated inside exported source archives, not maintained as stale claims about a moving checkout.
 
 ## Security and evidence
 

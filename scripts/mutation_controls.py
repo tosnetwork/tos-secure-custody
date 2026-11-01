@@ -33,6 +33,21 @@ MUTATIONS = [
      "test_adapters.AdapterTests.test_tls_verification_not_optional"),
     ("untrusted-display", "offline.py", 'exact_keys(bundle, {"schema", "boc_hex"})', 'pass  # MUTATED',
      "test_policy_offline.PolicyOfflineTests.test_untrusted_host_display_forbidden"),
+    ("wallet-vault-network", "highload.py", 'if request["network_global_id"] != network:', 'if False:',
+     "test_highload.HighloadTests.test_network_binding"),
+    ("wallet-vault-target", "highload.py", 'if request["vault"] != envelope["destination"]:', 'if False:',
+     "test_highload.HighloadTests.test_vault_binding"),
+    ("relay-wallet-target", "highload.py", 'if relay is not None and relay["destination"] != wallet:', 'if False:',
+     "test_highload.HighloadTests.test_relay_wallet_binding"),
+    ("fixed-value-send-modes", "highload.py", 'if mode not in (0, 1, 2, 3):', 'if False:',
+     "test_highload.HighloadTests.test_balances_and_send_mode_restrictions"),
+    ("signed-action-order", "highload.py", '    actions.reverse()', '    pass  # MUTATED',
+     "test_highload.HighloadTests.test_execution_order_and_effective_mode"),
+    ("no-claimed-outbound-sender", "highload.py", 'if outbound and source is not None:', 'if False:',
+     "test_highload.HighloadTests.test_outbound_cannot_claim_a_sender"),
+    ("bounded-wallet-batch", "highload.py", 'if len(actions) >= MAX_ACTIONS:', 'if False:',
+     "test_highload.HighloadTests.test_action_limit"),
+
 ]
 
 

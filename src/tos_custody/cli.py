@@ -7,6 +7,7 @@ from .canonical import loads
 from .errors import CustodyError
 from .offline import inspect_bundle, check_bundle
 from .vault import inspect_boc
+from .highload import FORMS, inspect_highload
 
 
 def _read(path, limit=131072):
@@ -23,6 +24,9 @@ def main(argv=None):
     boc = commands.add_parser("inspect-boc", help="decode the exact supported Vault BOC")
     boc.add_argument("file")
     boc.add_argument("--form", choices=("internal", "body"), default="internal")
+    highload = commands.add_parser("inspect-highload", help="inspect internally relayed PQ wallet bytes; never sign")
+    highload.add_argument("file")
+    highload.add_argument("--form", choices=FORMS, default="request")
     bundle = commands.add_parser("inspect-bundle", help="decode an offline request without trusting host labels")
     bundle.add_argument("file")
     check = commands.add_parser("check-bundle", help="diagnostic policy comparison; not authorization")
@@ -34,6 +38,8 @@ def main(argv=None):
     try:
         if args.command == "inspect-boc":
             result = inspect_boc(_read(args.file), form=args.form)
+        elif args.command == "inspect-highload":
+            result = inspect_highload(_read(args.file), form=args.form)
         elif args.command == "inspect-bundle":
             result = inspect_bundle(_read(args.file))
         elif args.command == "check-bundle":
@@ -42,6 +48,7 @@ def main(argv=None):
             result = {"stage": "experimental-inspection-only", "production_signing_enabled": False,
                       "hardware_qualified": False, "post_quantum_hardware_qualified": False,
                       "supported_parser": "ordinary BOC + Treasury Vault V1 bodies/internal messages",
+                      "pq_highload_parser": "Vault-only request/submission/relay inspection; not authentication",
                       "external_wallet_parser": "not implemented", "hardware_attestation": "not implemented"}
         print(json.dumps(result, indent=2, sort_keys=True))
         return 0

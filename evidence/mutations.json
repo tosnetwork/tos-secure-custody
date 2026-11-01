@@ -53,9 +53,52 @@
       "name": "untrusted-display",
       "target": "test_policy_offline.PolicyOfflineTests.test_untrusted_host_display_forbidden",
       "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "wallet-vault-network",
+      "target": "test_highload.HighloadTests.test_network_binding",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "wallet-vault-target",
+      "target": "test_highload.HighloadTests.test_vault_binding",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "relay-wallet-target",
+      "target": "test_highload.HighloadTests.test_relay_wallet_binding",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "fixed-value-send-modes",
+      "target": "test_highload.HighloadTests.test_balances_and_send_mode_restrictions",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "signed-action-order",
+      "target": "test_highload.HighloadTests.test_execution_order_and_effective_mode",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "no-claimed-outbound-sender",
+      "target": "test_highload.HighloadTests.test_outbound_cannot_claim_a_sender",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "bounded-wallet-batch",
+      "target": "test_highload.HighloadTests.test_action_limit",
+      "targeted_assertion_failed_after_mutation": true
     }
   ],
+  "execution": "Four sequential groups of four controls using the unchanged runner; all use the same source digest.",
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.mutation-results.v1",
-  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935"
+  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1"
 }

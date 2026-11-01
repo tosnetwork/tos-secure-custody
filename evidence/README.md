@@ -10,3 +10,7 @@ physical devices, PQ hardware, firmware reproduction and independent audit were 
 
 Do not edit a result into a pass. Regenerate it from the documented command. A result is not a
 production approval, a third-party review, a remote GitHub CI result or a funding authorization.
+
+RFC 0003 adds REF-level PQ highload inspection. Frozen fixture hashes were independently
+reproduced with the pinned upstream Python codec; this is not native VM or signature evidence.
+`reproducibility.json` records source archive comparison, not firmware reproducibility.

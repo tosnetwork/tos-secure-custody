@@ -24,7 +24,7 @@ REF success never substitutes for NATIVE, HIL or LAB evidence.
 | A16 | Stale evidence, revoked device or rollback | Fixture verification rejects | REF `test_attestation`; real hardware provenance outstanding |
 | A17 | Debug enabled, insecure boot or unknown firmware | Reject signed fixture claims | REF `test_attestation`; does not prove hardware state |
 | A18 | Attempt to turn inspection into signing | Offline production API refuses | REF `test_policy_offline` |
-| A19 | Remove a security guard | Named baseline passes; named assertion fails after mutation | REF nine sensitivity controls |
+| A19 | Remove a security guard | Named baseline passes; named assertion fails after mutation | REF sixteen sensitivity controls |
 | A20 | Different source paths/mtimes | Identical source TAR bytes | REF source packaging only |
 | A21 | Business host root + business key abuse | Guardian and Vault prevent unilateral treasury payout | NATIVE + HIL NOT RUN |
 | A22 | Real PQ role-wallet request and cold quorum | Exact signed messages execute; insufficient quorum fails | NATIVE + HIL NOT RUN |
@@ -38,6 +38,16 @@ REF success never substitutes for NATIVE, HIL or LAB evidence.
 | A30 | Side-channel/fault-injection/debug/chip substitution | Meets declared physical threat class | LAB NOT RUN |
 | A31 | Concurrent institutional spending and outages | Durable limits/idempotency and bounded availability | NATIVE + HIL NOT IMPLEMENTED |
 | A32 | Reproduce actual firmware independently | Exact binary match and running measurement verification | NOT IMPLEMENTED |
+
+## Additional S1 reference coverage
+
+| ID | Scenario | Required observation | Current evidence |
+|---|---|---|---|
+| A33 | Highload request hash vs BOC/JSON hash | Exact request hash and context; no signing authorization | REF `test_highload`; two pinned upstream Python-codec vectors |
+| A34 | Hidden action, reordered batch or balance-sweep mode | Inspect every action in execution order; reject unsupported modes/actions | REF `test_highload`; targeted mutations |
+| A35 | Wallet/Vault network or destination substitution | Reject mismatched nested binding and relayed wallet target | REF `test_highload`; targeted mutations |
+| A36 | Malformed PQ signature or forged "verified" label | Exact stored shape; never assert cryptographic verification; reject host labels | REF `test_highload`; native/HIL remain NOT RUN |
+| A37 | Documentation PNG breaks source packaging | Include image bytes/hash; retain unknown-type and symlink rejection | REF `test_source_bundle`; full source reproducibility check |
 
 ## Required acceptance record
 

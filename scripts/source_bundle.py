@@ -8,7 +8,7 @@ import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED = {".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", "dist", "build"}
-EXTENSIONS = {".md", ".py", ".json", ".yml", ".yaml", ".toml", ".txt", ".sh", ".boc"}
+EXTENSIONS = {".md", ".py", ".json", ".yml", ".yaml", ".toml", ".txt", ".sh", ".boc", ".png"}
 SPECIAL = {"LICENSE", "NOTICE", "Makefile", ".gitignore"}
 EPOCH = 1793491200
 
@@ -25,7 +25,7 @@ def entries(root):
             raise ValueError("source symlinks are forbidden: " + str(relative))
         if path.is_dir():
             continue
-        if path.suffix not in EXTENSIONS and path.name not in SPECIAL:
+        if path.suffix.lower() not in EXTENSIONS and path.name not in SPECIAL:
             raise ValueError("unrecognized source file; refusing to package: " + str(relative))
         result.append((relative.as_posix(), path.read_bytes()))
     return result
