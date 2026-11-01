@@ -25,7 +25,7 @@ def main():
               "evidence_level": "local software tests; synthetic fixtures and mocked HSM transport",
               "not_run": ["physical HSM", "offline device firmware", "ML-DSA hardware signing",
                           "TPM/DICE evidence verification", "native TVM end-to-end integration",
-                          "firmware reproducibility", "independent security audit", "GitHub Actions CI"]}
+                          "firmware reproducibility", "independent security audit"]}
     (ROOT / "evidence").mkdir(exist_ok=True)
     (ROOT / "evidence/unit-tests.txt").write_text(text)
     (ROOT / "evidence/validation.json").write_text(json.dumps(report, sort_keys=True, indent=2) + "\n")

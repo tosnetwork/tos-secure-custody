@@ -53,6 +53,47 @@ test_non_string_key (test_canonical.CanonicalTests.test_non_string_key) ... ok
 test_size_bound (test_canonical.CanonicalTests.test_size_bound) ... ok
 test_sorting_and_roundtrip (test_canonical.CanonicalTests.test_sorting_and_roundtrip) ... ok
 test_unicode_and_control_characters (test_canonical.CanonicalTests.test_unicode_and_control_characters) ... ok
+test_action_limit (test_highload.HighloadTests.test_action_limit) ... ok
+test_action_trailing_data (test_highload.HighloadTests.test_action_trailing_data) ... ok
+test_balances_and_send_mode_restrictions (test_highload.HighloadTests.test_balances_and_send_mode_restrictions) ... ok
+test_bundle_inspection_and_no_policy_shortcut (test_highload.HighloadTests.test_bundle_inspection_and_no_policy_shortcut) ... ok
+test_cli_success_and_controlled_error (test_highload.HighloadTests.test_cli_success_and_controlled_error) ... ok
+test_control_body_still_uses_signed_destination (test_highload.HighloadTests.test_control_body_still_uses_signed_destination) ... ok
+test_empty_batch_rejected (test_highload.HighloadTests.test_empty_batch_rejected) ... ok
+test_exact_preimage_and_explicit_unverified_status (test_highload.HighloadTests.test_exact_preimage_and_explicit_unverified_status) ... ok
+test_execution_order_and_effective_mode (test_highload.HighloadTests.test_execution_order_and_effective_mode) ... ok
+test_external_envelope_rejected (test_highload.HighloadTests.test_external_envelope_rejected) ... ok
+test_forbidden_message_fields (test_highload.HighloadTests.test_forbidden_message_fields) ... ok
+test_frozen_upstream_codec_vectors (test_highload.HighloadTests.test_frozen_upstream_codec_vectors) ... ok
+test_hidden_second_action_is_rejected (test_highload.HighloadTests.test_hidden_second_action_is_rejected) ... ok
+test_host_labels_forbidden (test_highload.HighloadTests.test_host_labels_forbidden) ... ok
+test_inline_body (test_highload.HighloadTests.test_inline_body) ... ok
+test_message_trailing_reference (test_highload.HighloadTests.test_message_trailing_reference) ... ok
+test_missing_relayer_rejected (test_highload.HighloadTests.test_missing_relayer_rejected) ... ok
+test_network_binding (test_highload.HighloadTests.test_network_binding) ... ok
+test_non_send_action_rejected (test_highload.HighloadTests.test_non_send_action_rejected) ... ok
+test_nonempty_terminator (test_highload.HighloadTests.test_nonempty_terminator) ... ok
+test_outbound_cannot_claim_a_sender (test_highload.HighloadTests.test_outbound_cannot_claim_a_sender) ... ok
+test_relay_wallet_binding (test_highload.HighloadTests.test_relay_wallet_binding) ... ok
+test_request_trailing_data (test_highload.HighloadTests.test_request_trailing_data) ... ok
+test_reserved_query_ids (test_highload.HighloadTests.test_reserved_query_ids) ... ok
+test_seeded_malformed_input (test_highload.HighloadTests.test_seeded_malformed_input) ... ok
+test_signature_bytes_do_not_change_preimage (test_highload.HighloadTests.test_signature_bytes_do_not_change_preimage) ... ok
+test_signature_chain_shape (test_highload.HighloadTests.test_signature_chain_shape) ... ok
+test_signature_last_chunk_hidden_tail (test_highload.HighloadTests.test_signature_last_chunk_hidden_tail) ... ok
+test_signature_length (test_highload.HighloadTests.test_signature_length) ... ok
+test_signed_fields_change_preimage (test_highload.HighloadTests.test_signed_fields_change_preimage) ... ok
+test_submission_is_not_signature_verification (test_highload.HighloadTests.test_submission_is_not_signature_verification) ... ok
+test_submission_trailing_data (test_highload.HighloadTests.test_submission_trailing_data) ... ok
+test_token_payload_identity_and_units (test_highload.HighloadTests.test_token_payload_identity_and_units) ... ok
+test_transport_encoding_does_not_change_signing_message (test_highload.HighloadTests.test_transport_encoding_does_not_change_signing_message) ... ok
+test_truncated_submissions (test_highload.HighloadTests.test_truncated_submissions) ... ok
+test_unknown_form (test_highload.HighloadTests.test_unknown_form) ... ok
+test_unpinned_upstream_codec_is_not_executed (test_highload.HighloadTests.test_unpinned_upstream_codec_is_not_executed) ... ok
+test_unsigned_relay_fields_do_not_change_preimage (test_highload.HighloadTests.test_unsigned_relay_fields_do_not_change_preimage) ... ok
+test_vault_binding (test_highload.HighloadTests.test_vault_binding) ... ok
+test_wrong_submission_opcode (test_highload.HighloadTests.test_wrong_submission_opcode) ... ok
+test_zero_timeout (test_highload.HighloadTests.test_zero_timeout) ... ok
 test_body_only_cannot_pass_appraisal (test_policy_offline.PolicyOfflineTests.test_body_only_cannot_pass_appraisal) ... ok
 test_boolean_nonce_forbidden (test_policy_offline.PolicyOfflineTests.test_boolean_nonce_forbidden) ... ok
 test_cross_role_operation (test_policy_offline.PolicyOfflineTests.test_cross_role_operation) ... ok
@@ -69,6 +110,10 @@ test_untrusted_host_display_forbidden (test_policy_offline.PolicyOfflineTests.te
 test_valid_diagnostic_never_authorizes_signing (test_policy_offline.PolicyOfflineTests.test_valid_diagnostic_never_authorizes_signing) ... ok
 test_wrong_chain_epoch_nonce (test_policy_offline.PolicyOfflineTests.test_wrong_chain_epoch_nonce) ... ok
 test_wrong_or_absent_role_source (test_policy_offline.PolicyOfflineTests.test_wrong_or_absent_role_source) ... ok
+test_image_changes_commitment (test_source_bundle.SourceBundleTests.test_image_changes_commitment) ... ok
+test_image_symlink_stays_rejected (test_source_bundle.SourceBundleTests.test_image_symlink_stays_rejected) ... ok
+test_unknown_extension_stays_rejected (test_source_bundle.SourceBundleTests.test_unknown_extension_stays_rejected) ... ok
+test_uppercase_png_roundtrip (test_source_bundle.SourceBundleTests.test_uppercase_png_roundtrip) ... ok
 test_all_nine_entrypoints (test_vault.VaultTests.test_all_nine_entrypoints) ... ok
 test_bounced_message (test_vault.VaultTests.test_bounced_message) ... ok
 test_duplicate_roles_rejected (test_vault.VaultTests.test_duplicate_roles_rejected) ... ok
@@ -90,6 +135,6 @@ test_wrong_domain (test_vault.VaultTests.test_wrong_domain) ... ok
 test_zero_payment (test_vault.VaultTests.test_zero_payment) ... ok
 
 ----------------------------------------------------------------------
-Ran 90 tests in 0.283s
+Ran 135 tests in 0.355s
 
 OK

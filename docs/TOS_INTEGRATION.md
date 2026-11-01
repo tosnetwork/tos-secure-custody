@@ -42,10 +42,16 @@ Implemented: all nine Vault control opcodes; payment and three management payloa
 workchain-0 addresses; exact consumption of bits and references; ordinary BOC structure; and the
 supported internal-message wrapper including source, destination, value, fees, flags and timestamps.
 
-Not implemented: the full external role-wallet request, signed/unsigned wallet body distinction,
-wallet-version-specific action lists and modes, PQ signature containers, exact wallet signing preimage,
-code/state proof verification, account lifecycle replay analysis and actual native VM execution.
+Also implemented: a deliberately bounded PQ highload profile for unsigned Requests, submission
+bodies and relayed internal messages; exact signing message/context; all supported send actions in
+execution order; and canonical signature-container shape checks. See
+[RFC 0003](rfcs/0003-pq-highload-inspection.md) for the restrictions and unsigned relay fields.
+This wallet has no external-message handler. Shape checks are not signature verification.
+
+Not implemented: PQ cold multisig and other wallet profiles, cryptographic wallet authentication,
+code/state/finality proofs, account-lifecycle replay analysis and actual native VM execution.
 These missing pieces prohibit signatures. Unknown cell types and all StateInit are refused.
+The existing Vault-only inspector and new highload inspector are separate explicit profiles.
 
 ## Integration acceptance
 

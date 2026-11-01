@@ -3,10 +3,36 @@
   "commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
   "purpose": "Pinned Treasury Vault V1 compatibility baseline; not a latest-main assertion",
   "observed_sources": [
-    {"path": "doc/treasury-vault-v1.md", "git_blob_sha1": "5b966d93e5677215e8d15d11fa94f22838c36292"},
-    {"path": "test/treasury-vault/wire.py", "git_blob_sha1": "17498230d045a8275d542f99dfe26d0c2c7d0fcc"},
-    {"path": "test/auth-extensions/cells.py", "git_blob_sha1": "a2038cde8a5165ac21e84ae34d4f550299250d2c"}
+    {
+      "path": "doc/treasury-vault-v1.md",
+      "git_blob_sha1": "5b966d93e5677215e8d15d11fa94f22838c36292"
+    },
+    {
+      "path": "test/treasury-vault/wire.py",
+      "git_blob_sha1": "17498230d045a8275d542f99dfe26d0c2c7d0fcc"
+    },
+    {
+      "path": "test/auth-extensions/cells.py",
+      "git_blob_sha1": "a2038cde8a5165ac21e84ae34d4f550299250d2c"
+    },
+    {
+      "path": "crypto/smartcont/pq-highload-wallet-code.fc",
+      "git_blob_sha1": "a23caffe225f90304a28673ba97374bf47e96f1d"
+    },
+    {
+      "path": "crypto/smartcont/pq-bytes.fc",
+      "git_blob_sha1": "84d5a7b4bd376d7037040a0bb23d72f5a1a5e04b"
+    },
+    {
+      "path": "crypto/smartcont/replay-guard.fc",
+      "git_blob_sha1": "560086c8dc8cfafecc23d36cdca51f6847063c2a"
+    },
+    {
+      "path": "test/treasury-vault/test_pq_wallets.py",
+      "git_blob_sha1": "2d814ffc4c96af646e14b1cddddc9321d609f14c"
+    }
   ],
   "native_conformance_executed": false,
-  "production_signing_enabled": false
+  "production_signing_enabled": false,
+  "upstream_python_codec_vectors_executed": true
 }

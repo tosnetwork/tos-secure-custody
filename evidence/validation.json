@@ -10,14 +10,13 @@
     "TPM/DICE evidence verification",
     "native TVM end-to-end integration",
     "firmware reproducibility",
-    "independent security audit",
-    "GitHub Actions CI"
+    "independent security audit"
   ],
-  "python": "3.14.6",
-  "recorded_at_utc": "2026-11-01T01:26:48.096431+00:00",
+  "python": "3.13.5",
+  "recorded_at_utc": "2026-11-01T01:59:11.457997+00:00",
   "schema": "tos.custody.validation.v1",
   "skips": 0,
-  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935",
+  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1",
   "successful": true,
-  "tests_run": 90
+  "tests_run": 135
 }

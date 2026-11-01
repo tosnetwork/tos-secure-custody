@@ -1,7 +1,8 @@
 {
-  "comparison": "identical source contents reconstructed in two paths with different filesystem mtimes",
-  "result": "PASS",
+  "archive_hash_policy": "An archive containing this report has its own separately calculated digest; no self-referential archive hash is claimed.",
+  "byte_identical": true,
+  "comparison": "two independent directories and differing filesystem mtimes",
   "schema": "tos.custody.source-reproducibility.v1",
-  "scope": "source archive only; not firmware, wheels, or independent-builder evidence",
-  "source_digest": "76145dfa5c668763b219eea93c7c29e304831fa2f456c9f8cb74cc87f9ea5935"
+  "scope": "deterministic source archives including documentation PNG; NOT firmware/toolchain reproducibility",
+  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1"
 }
