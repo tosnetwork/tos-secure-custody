@@ -3,13 +3,13 @@ import argparse
 import json
 
 BLOCKERS = [
-    "Complete wallet authentication is missing: highload/cold multisig inspection is not real signature verification or native proof",
+    "Complete wallet authentication is missing: diagnostic ML-DSA verification does not authenticate supplied keys or state",
     "Authenticated finality, code-hash and role/state proof verification is not implemented",
     "No post-quantum hardware signer has been qualified",
     "Trusted-display firmware and physical confirmation have not been tested",
     "Production hardware attestation and durable anti-replay state are not implemented",
     "Firmware/toolchain/dependency reproducibility has not been established",
-    "Native TOS custody integration and institutional hardware attacks have not run",
+    "Full native custody operational acceptance and institutional hardware attacks remain outstanding",
     "Independent expert code/hardware review and final deployment ceremony are outstanding",
 ]
 

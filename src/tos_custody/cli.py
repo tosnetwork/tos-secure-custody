@@ -9,6 +9,7 @@ from .offline import inspect_bundle, check_bundle
 from .vault import inspect_boc
 from .highload import FORMS, inspect_highload
 from .multisig import inspect_multisig, inspect_multisig_state
+from .verification import OpenSslVerifier, verify_highload, verify_multisig
 
 
 def _read(path, limit=131072):
@@ -35,6 +36,16 @@ def main(argv=None):
     multisig.add_argument("--state", help="optional untrusted account-data BOC for structural comparisons")
     state = commands.add_parser("inspect-multisig-state", help="check member IDs/count/quorum; NOT state authentication")
     state.add_argument("file")
+    for command in ("verify-highload", "verify-multisig"):
+        verify = commands.add_parser(command, help="diagnostic ML-DSA verification against supplied keys; not authorization")
+        verify.add_argument("file")
+        verify.add_argument("--form", choices=("submission", "relay"), default="submission")
+        verify.add_argument("--openssl", required=True, help="operator-configured absolute OpenSSL 3.5+ path")
+        if command == "verify-highload":
+            verify.add_argument("--public-key", required=True, help="raw 1312-byte supplied public key")
+        else:
+            verify.add_argument("--context", required=True)
+            verify.add_argument("--state", required=True, help="supplied account data; not authenticated state")
     bundle = commands.add_parser("inspect-bundle", help="decode an offline request without trusting host labels")
     bundle.add_argument("file")
     check = commands.add_parser("check-bundle", help="diagnostic policy comparison; not authorization")
@@ -44,7 +55,14 @@ def main(argv=None):
     commands.add_parser("status", help="show implementation boundaries")
     args = parser.parse_args(argv)
     try:
-        if args.command == "inspect-boc":
+        if args.command == "verify-highload":
+            result = verify_highload(_read(args.file), form=args.form,
+                                     public_key=_read(args.public_key, 1312), verifier=OpenSslVerifier(args.openssl))
+        elif args.command == "verify-multisig":
+            result = verify_multisig(_read(args.file), form=args.form,
+                                     context=loads(_read(args.context)), state_raw=_read(args.state),
+                                     verifier=OpenSslVerifier(args.openssl))
+        elif args.command == "inspect-boc":
             result = inspect_boc(_read(args.file), form=args.form)
         elif args.command == "inspect-highload":
             result = inspect_highload(_read(args.file), form=args.form)
@@ -64,6 +82,7 @@ def main(argv=None):
                       "supported_parser": "ordinary BOC + Treasury Vault V1 bodies/internal messages",
                       "pq_highload_parser": "Vault-only request/submission/relay inspection; not authentication",
                       "pq_multisig_parser": "cold request/submission/relay and account-data inspection; not authentication",
+                      "pq_signature_verification": "optional OpenSSL ML-DSA-44 against supplied keys; no state authentication",
                       "external_wallet_parser": "not implemented", "hardware_attestation": "not implemented"}
         print(json.dumps(result, indent=2, sort_keys=True))
         return 0

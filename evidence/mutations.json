@@ -2,6 +2,18 @@
   "controls": [
     {
       "baseline_passed": true,
+      "name": "mldsa-backend-rejection",
+      "target": "test_verification.VerificationTests.test_backend_errors_and_timeout_fail_closed",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "mldsa-context-preserved",
+      "target": "test_verification.VerificationTests.test_backend_preserves_pure_wallet_context",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
       "name": "domain-binding",
       "target": "test_vault.VaultTests.test_wrong_domain",
       "targeted_assertion_failed_after_mutation": true
@@ -165,5 +177,5 @@
   ],
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.mutation-results.v1",
-  "source_digest": "fb0e0220d7b12b3f5815de2ee487d859ac1942541b9bdb86ef511e7592f3a7fd"
+  "source_digest": "f4ad9d304923cf51844c4a7a7495f7dc7d750e062b53a4fa3e7440483d53f61d"
 }

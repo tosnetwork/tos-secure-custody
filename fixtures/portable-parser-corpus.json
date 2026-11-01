@@ -1,0 +1,633 @@
+{
+  "cases": [
+    {
+      "boc_hex": "b5ee9c720102070100011500016efff421cf80044444444444444444444444444444444444444444444444444444444444444440000000e00000400000001ab9a03d800e1001020a0ec3c86d010602016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000103011854560001000000000000000004017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd0459005008d000000000000000000000000000000000000000000000000000000000000000043b9aca008006666666666666666666666666666666666666666666666666666666666666666100000",
+      "expected": {
+        "action_count": 1,
+        "actions": [
+          {
+            "effective_send_mode": 3,
+            "execution_index": 0,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "8124e0bf3a4b30d75b2377b2501cf921353b94ab1dd18786a19af7551461339f",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "684ec6a42376078cd4fc985b4293ebc5dcad0eefcef302fe1a585cfde04b8901",
+              "opcode": "54560001",
+              "operation": "submit",
+              "query_id": 0,
+              "request": {
+                "deadline": 1793491500,
+                "domain": "54565031",
+                "epoch": 7,
+                "network_global_id": -777777,
+                "nonce": 42,
+                "payload": {
+                  "amount_base_units": 1000000000,
+                  "asset_id": "0000000000000000000000000000000000000000000000000000000000000000",
+                  "kind": "payment",
+                  "recipient": "0:3333333333333333333333333333333333333333333333333333333333333333",
+                  "token_attachment_base_units": 0
+                },
+                "request_cell_hash": "c149a9287022e01f6a5f8801ac25c165dc4859997e1ea750bd1fac66505a6903",
+                "vault": "0:1111111111111111111111111111111111111111111111111111111111111111"
+              }
+            }
+          }
+        ],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "28394964edd2c29253354faea3b72820d284a7db47dd3b4b2eaa48978305d357",
+        "created_at": 1793491190,
+        "expires_at_exclusive": 1793494790,
+        "freshness_checked": false,
+        "network_global_id": -777777,
+        "profile": "pq-highload-v1/vault-only/request",
+        "query_id": 1,
+        "replay_checked": false,
+        "request_cell_hash": "6ab1b0ca5ca25c0d662e0d16e575dcc6e879f584aeebb997c194f27a863dd842",
+        "root_cell_hash": "6ab1b0ca5ca25c0d662e0d16e575dcc6e879f584aeebb997c194f27a863dd842",
+        "schema": "tos.custody.highload-inspection.v1",
+        "signature": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-HIGHLOAD-v1",
+        "signing_message_hex": "6ab1b0ca5ca25c0d662e0d16e575dcc6e879f584aeebb997c194f27a863dd842",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "subwallet_id": 7,
+        "timeout": 3600,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "wallet": "0:2222222222222222222222222222222222222222222222222222222222222222",
+        "warnings": [
+          "Inspection is not signature verification, account authentication or approval.",
+          "All sends are best effort (+2 forced); execution is not atomic or guaranteed.",
+          "Relayer routing/value/query ID are outside the wallet signature.",
+          "The 32-byte request cell hash is signed under the stated ML-DSA context, not BOC bytes or JSON."
+        ]
+      },
+      "form": "request",
+      "name": "highload/native-1-send",
+      "profile": "highload"
+    },
+    {
+      "boc_hex": "b5ee9c7201020c010001e800016efff421cf80044444444444444444444444444444444444444444444444444444444444444440000000e00000400000001ab9a03d800e1001020a0ec3c86d010602016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000103011854560001000000000000000004017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900500870000000000000000000000000000000000000000000000000000000000000000102800666666666666666666666666666666666666666666666666666666666666666610020a0ec3c86d010b07016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000108011854560001000000000000000009017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900a008700000000000000000000000000000000000000000000000000000000000000001018006666666666666666666666666666666666666666666666666666666666666666100000",
+      "expected": {
+        "action_count": 2,
+        "actions": [
+          {
+            "effective_send_mode": 3,
+            "execution_index": 0,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "4a2040c9f5b345985b1e92437003efc75bba31d12d5c67ec2a8f1287afacbd14",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "be63028b36df1b48934706a0621bdfbd7524749ce4f7fbb09f1cc2e6ae395f4d",
+              "opcode": "54560001",
+              "operation": "submit",
+              "query_id": 0,
+              "request": {
+                "deadline": 1793491500,
+                "domain": "54565031",
+                "epoch": 7,
+                "network_global_id": -777777,
+                "nonce": 42,
+                "payload": {
+                  "amount_base_units": 1,
+                  "asset_id": "0000000000000000000000000000000000000000000000000000000000000000",
+                  "kind": "payment",
+                  "recipient": "0:3333333333333333333333333333333333333333333333333333333333333333",
+                  "token_attachment_base_units": 0
+                },
+                "request_cell_hash": "5e08d457b0adc6aacce6e9735a42213d8e5fedb8363812f61b85f1a62b6d2bfc",
+                "vault": "0:1111111111111111111111111111111111111111111111111111111111111111"
+              }
+            }
+          },
+          {
+            "effective_send_mode": 3,
+            "execution_index": 1,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "dd33a6e7bb3c8009fa6028cf726c837e44d0906c7199c43811c0c089deae387a",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "897a9f7e038943256a3a69440ae29c74e3fe0c71f3b43a26df1fb6ddbb65641e",
+              "opcode": "54560001",
+              "operation": "submit",
+              "query_id": 0,
+              "request": {
+                "deadline": 1793491500,
+                "domain": "54565031",
+                "epoch": 7,
+                "network_global_id": -777777,
+                "nonce": 42,
+                "payload": {
+                  "amount_base_units": 2,
+                  "asset_id": "0000000000000000000000000000000000000000000000000000000000000000",
+                  "kind": "payment",
+                  "recipient": "0:3333333333333333333333333333333333333333333333333333333333333333",
+                  "token_attachment_base_units": 0
+                },
+                "request_cell_hash": "6ae48aae2b1e87f3bb5ad9ab4134509111f23b7be6dc4471eebdb17e89cb5f84",
+                "vault": "0:1111111111111111111111111111111111111111111111111111111111111111"
+              }
+            }
+          }
+        ],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "46aefa9266327973801db2439cc12f3b9399da6355ac0f18269398e63003b89e",
+        "created_at": 1793491190,
+        "expires_at_exclusive": 1793494790,
+        "freshness_checked": false,
+        "network_global_id": -777777,
+        "profile": "pq-highload-v1/vault-only/request",
+        "query_id": 1,
+        "replay_checked": false,
+        "request_cell_hash": "be2b6b64cedb86dc6504113afa0283fbe8086fdd8eabc050ee35dd3bec2061a1",
+        "root_cell_hash": "be2b6b64cedb86dc6504113afa0283fbe8086fdd8eabc050ee35dd3bec2061a1",
+        "schema": "tos.custody.highload-inspection.v1",
+        "signature": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-HIGHLOAD-v1",
+        "signing_message_hex": "be2b6b64cedb86dc6504113afa0283fbe8086fdd8eabc050ee35dd3bec2061a1",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "subwallet_id": 7,
+        "timeout": 3600,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "wallet": "0:2222222222222222222222222222222222222222222222222222222222222222",
+        "warnings": [
+          "Inspection is not signature verification, account authentication or approval.",
+          "All sends are best effort (+2 forced); execution is not atomic or guaranteed.",
+          "Relayer routing/value/query ID are outside the wallet signature.",
+          "The 32-byte request cell hash is signed under the stated ML-DSA context, not BOC bytes or JSON."
+        ]
+      },
+      "form": "request",
+      "name": "highload/native-2-send",
+      "profile": "highload"
+    },
+    {
+      "boc_hex": "b5ee9c7201020c010001e800016efff421cf80044444444444444444444444444444444444444444444444444444444444444440000000e00000400000001ab9a03d800e1001020a0ec3c86d010602016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000103011854560001000000000000000004017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900500870000000000000000000000000000000000000000000000000000000000000000102800666666666666666666666666666666666666666666666666666666666666666610020a0ec3c86d010b07016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000108011854560001000000000000000009017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900a0087000000000000000000000000000000000000000000000000000000000000000010180066666666666666666666666666666666666666666666666666666666666666661000",
+      "form": "request",
+      "name": "highload/truncated",
+      "profile": "highload",
+      "reject": true
+    },
+    {
+      "boc_hex": "b5ee9c7201020c010001e800016efff421cf80044444444444444444444444444444444444444444444444444444444444444440000000e00000400000001ab9a03d800e1001020a0ec3c86d010602016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000103011854560001000000000000000004017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900500870000000000000000000000000000000000000000000000000000000000000000102800666666666666666666666666666666666666666666666666666666666666666610020a0ec3c86d010b07016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000108011854560001000000000000000009017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900a00870000000000000000000000000000000000000000000000000000000000000000101800666666666666666666666666666666666666666666666666666666666666666610000000",
+      "form": "request",
+      "name": "highload/trailing-byte",
+      "profile": "highload",
+      "reject": true
+    },
+    {
+      "boc_hex": "0000000001020c010001e800016efff421cf80044444444444444444444444444444444444444444444444444444444444444440000000e00000400000001ab9a03d800e1001020a0ec3c86d010602016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000103011854560001000000000000000004017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900500870000000000000000000000000000000000000000000000000000000000000000102800666666666666666666666666666666666666666666666666666666666666666610020a0ec3c86d010b07016862000888888888888888888888888888888888888888888888888888888888888888a02faf08000000000000000000000000000108011854560001000000000000000009017b54565031fff421cf8002222222222222222222222222222222222222222222222222222222222222222000000000000000e0000000000000054d5cd045900a008700000000000000000000000000000000000000000000000000000000000000001018006666666666666666666666666666666666666666666666666666666666666666100000",
+      "form": "request",
+      "name": "highload/bad-magic",
+      "profile": "highload",
+      "reject": true
+    },
+    {
+      "boc_hex": "b5ee9c7201010501006800010a016ae6822c01020a0ec3c86d010402016862000888888888888888888888888888888888888888888888888888888888888888a02faf0800000000000000000000000000010300385456000500000000000000000000000000000007000000000000002a0000",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "expected": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "action_count": 1,
+        "actions": [
+          {
+            "effective_send_mode": 3,
+            "execution_index": 0,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "71b31be77b131f827b513b60b61a48e40cdbe027648887079969cf69f5c01efb",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "290e97397b33acd3b60f3d1ba83ec4ce9e5661904dc3fd72d59b72094cc4a3b5",
+              "epoch": 7,
+              "nonce": 42,
+              "opcode": "54560005",
+              "operation": "pause",
+              "query_id": 0
+            }
+          }
+        ],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "12f61fd55d04434a14cd27b86d04c4890f420cdfd310961004b3958ea580a739",
+        "context_origin": "caller-supplied-untrusted",
+        "cryptographically_verified": false,
+        "freshness_checked": false,
+        "kind": 1,
+        "membership_change": null,
+        "network_global_id": -777777,
+        "operation": "execute",
+        "profile": "pq-multisig-v1/vault-only/request",
+        "replay_checked": false,
+        "request_cell_hash": "882bfbeca1487639aa6b372987f84a4f6692db4ff1ebf4cdadddc9e21b1a32ab",
+        "root_cell_hash": "882bfbeca1487639aa6b372987f84a4f6692db4ff1ebf4cdadddc9e21b1a32ab",
+        "schema": "tos.custody.multisig-inspection.v1",
+        "seqno": 9,
+        "signature_set_compared_with_untrusted_state": false,
+        "signatures": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-QUORUM-v1",
+        "signing_domain": "0x504d5331",
+        "signing_message_hex": "6cce1e082983048ff1172adbafdcb2370f21fa8a3091f760a965b4894a389f73",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "supplied_state": null,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "valid_until_inclusive": 1793491500,
+        "warnings": [
+          "Network/account/seqno are NOT in Request; derive them from authenticated state before signing.",
+          "The quorum preimage cell hash, NOT the Request/BOC/JSON hash, is the signing message.",
+          "Membership/count comparisons against supplied data do not verify signatures or chain state.",
+          "Account membership changes are immediate; Vault governance retains its separate delay.",
+          "Sends are best effort (+2 forced); sequence consumption is not settlement proof.",
+          "Relayer routing/value/query ID are outside the quorum signature."
+        ]
+      },
+      "form": "request",
+      "name": "multisig/execute-pause",
+      "profile": "multisig"
+    },
+    {
+      "boc_hex": "b5ee9c720101080100c600010a016ae6822c01020a0ec3c86d010402016862000888888888888888888888888888888888888888888888888888888888888888a02faf0800000000000000000000000000010300385456000800000000000000000000000000000007000000000000002a020a0ec3c86d010705016862000888888888888888888888888888888888888888888888888888888888888888a02faf0800000000000000000000000000010600385456000500000000000000000000000000000007000000000000002a0000",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "expected": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "action_count": 2,
+        "actions": [
+          {
+            "effective_send_mode": 3,
+            "execution_index": 0,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "71b31be77b131f827b513b60b61a48e40cdbe027648887079969cf69f5c01efb",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "290e97397b33acd3b60f3d1ba83ec4ce9e5661904dc3fd72d59b72094cc4a3b5",
+              "epoch": 7,
+              "nonce": 42,
+              "opcode": "54560005",
+              "operation": "pause",
+              "query_id": 0
+            }
+          },
+          {
+            "effective_send_mode": 3,
+            "execution_index": 1,
+            "message": {
+              "body_by_reference": true,
+              "bounce": true,
+              "bounced": false,
+              "created_at": 0,
+              "created_lt": 0,
+              "destination": "0:1111111111111111111111111111111111111111111111111111111111111111",
+              "extra_flags": 0,
+              "forward_fee": 0,
+              "ihr_disabled": true,
+              "message_cell_hash": "97ca0dfb6a0644c573a6ba35b1efae6522605f68dd1cab55569abdf82f81281c",
+              "source": null,
+              "value_base_units": 100000000
+            },
+            "send_mode": 1,
+            "vault_body": {
+              "body_cell_hash": "1762f0f7edeaf55b54ec0fd4adc665589545e734a7460e79bf268858a71ea289",
+              "epoch": 7,
+              "nonce": 42,
+              "opcode": "54560008",
+              "operation": "veto",
+              "query_id": 0
+            }
+          }
+        ],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "068d907bc220cdc9b3bbb442a88f61fad90a382dc0ff866d6fa7f98b677a0958",
+        "context_origin": "caller-supplied-untrusted",
+        "cryptographically_verified": false,
+        "freshness_checked": false,
+        "kind": 1,
+        "membership_change": null,
+        "network_global_id": -777777,
+        "operation": "execute",
+        "profile": "pq-multisig-v1/vault-only/request",
+        "replay_checked": false,
+        "request_cell_hash": "9cdef119eb2c6a08367bd1ad021546ab27f69a04c1caaa225a4ce5892aeffff3",
+        "root_cell_hash": "9cdef119eb2c6a08367bd1ad021546ab27f69a04c1caaa225a4ce5892aeffff3",
+        "schema": "tos.custody.multisig-inspection.v1",
+        "seqno": 9,
+        "signature_set_compared_with_untrusted_state": false,
+        "signatures": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-QUORUM-v1",
+        "signing_domain": "0x504d5331",
+        "signing_message_hex": "957c81a859a1f09c0c6fd21ecbbb452db824fac00cc7b5eecf84da6240520f1a",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "supplied_state": null,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "valid_until_inclusive": 1793491500,
+        "warnings": [
+          "Network/account/seqno are NOT in Request; derive them from authenticated state before signing.",
+          "The quorum preimage cell hash, NOT the Request/BOC/JSON hash, is the signing message.",
+          "Membership/count comparisons against supplied data do not verify signatures or chain state.",
+          "Account membership changes are immediate; Vault governance retains its separate delay.",
+          "Sends are best effort (+2 forced); sequence consumption is not settlement proof.",
+          "Relayer routing/value/query ID are outside the quorum signature."
+        ]
+      },
+      "form": "request",
+      "name": "multisig/execute-pause-veto",
+      "profile": "multisig"
+    },
+    {
+      "boc_hex": "b5ee9c7201020e0100055300010a026ae6822c01010201020108000005200301fe000700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000401fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000501fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000601fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000701fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000801fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000901fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a01fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b01fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c01fe000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d0054000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "expected": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "action_count": 0,
+        "actions": [],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "50bddd4848f888fd37d815950d6885f2174fb200ec1213a3a8a727640bc5558e",
+        "context_origin": "caller-supplied-untrusted",
+        "cryptographically_verified": false,
+        "freshness_checked": false,
+        "kind": 2,
+        "membership_change": {
+          "compared_with_untrusted_state": false,
+          "effect": "Immediate account change, authorized by the PRE-CHANGE quorum",
+          "member": {
+            "key_id": "dd733dd7091f1692c5a64042fec1561844e7b8eb4a06cf92340247595a427907",
+            "length_bytes": 1312,
+            "public_key_sha256": "2b05f2f022e327754da4198ad5ff191eb146ce9b0f914c40871b8a7f9642a882",
+            "shape_checked": true
+          },
+          "operation": "add_member",
+          "vault_delay_bypassed": false
+        },
+        "network_global_id": -777777,
+        "operation": "configure",
+        "profile": "pq-multisig-v1/vault-only/request",
+        "replay_checked": false,
+        "request_cell_hash": "7abbf2a38116f80983e69e512b1f192abcc1451c8e9f3dd702eef6fb15ded618",
+        "root_cell_hash": "7abbf2a38116f80983e69e512b1f192abcc1451c8e9f3dd702eef6fb15ded618",
+        "schema": "tos.custody.multisig-inspection.v1",
+        "seqno": 9,
+        "signature_set_compared_with_untrusted_state": false,
+        "signatures": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-QUORUM-v1",
+        "signing_domain": "0x504d5332",
+        "signing_message_hex": "90eca6bd0763bef9da351f486045c86a402f602807ad2cf17b743375811f2145",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "supplied_state": null,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "valid_until_inclusive": 1793491500,
+        "warnings": [
+          "Network/account/seqno are NOT in Request; derive them from authenticated state before signing.",
+          "The quorum preimage cell hash, NOT the Request/BOC/JSON hash, is the signing message.",
+          "Membership/count comparisons against supplied data do not verify signatures or chain state.",
+          "Account membership changes are immediate; Vault governance retains its separate delay.",
+          "Sends are best effort (+2 forced); sequence consumption is not settlement proof.",
+          "Relayer routing/value/query ID are outside the quorum signature."
+        ]
+      },
+      "form": "request",
+      "name": "multisig/add-member",
+      "profile": "multisig"
+    },
+    {
+      "boc_hex": "b5ee9c7201010201002b00010a026ae6822c01004202c1bc3fd00ab5eebb55b4044aa0e5e46c0ed60fbd23bea61b3e8dc32dccffeb5a",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "expected": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "action_count": 0,
+        "actions": [],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "929a1819b535a55338f4ec87bc33f01a4ba1c4085c0b77ffb776dcc270d45dbc",
+        "context_origin": "caller-supplied-untrusted",
+        "cryptographically_verified": false,
+        "freshness_checked": false,
+        "kind": 2,
+        "membership_change": {
+          "compared_with_untrusted_state": false,
+          "effect": "Immediate account change, authorized by the PRE-CHANGE quorum",
+          "key_id": "c1bc3fd00ab5eebb55b4044aa0e5e46c0ed60fbd23bea61b3e8dc32dccffeb5a",
+          "operation": "remove_member",
+          "vault_delay_bypassed": false
+        },
+        "network_global_id": -777777,
+        "operation": "configure",
+        "profile": "pq-multisig-v1/vault-only/request",
+        "replay_checked": false,
+        "request_cell_hash": "736f398d7aca9626e98c8b390ad3d30b281faec7957a1753f732491a0387f914",
+        "root_cell_hash": "736f398d7aca9626e98c8b390ad3d30b281faec7957a1753f732491a0387f914",
+        "schema": "tos.custody.multisig-inspection.v1",
+        "seqno": 9,
+        "signature_set_compared_with_untrusted_state": false,
+        "signatures": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-QUORUM-v1",
+        "signing_domain": "0x504d5332",
+        "signing_message_hex": "55b4038d04e14d7d1295ad4cab31116b6b15f5ec90a0efedd682df71496bb5e2",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "supplied_state": null,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "valid_until_inclusive": 1793491500,
+        "warnings": [
+          "Network/account/seqno are NOT in Request; derive them from authenticated state before signing.",
+          "The quorum preimage cell hash, NOT the Request/BOC/JSON hash, is the signing message.",
+          "Membership/count comparisons against supplied data do not verify signatures or chain state.",
+          "Account membership changes are immediate; Vault governance retains its separate delay.",
+          "Sends are best effort (+2 forced); sequence consumption is not settlement proof.",
+          "Relayer routing/value/query ID are outside the quorum signature."
+        ]
+      },
+      "form": "request",
+      "name": "multisig/remove-member",
+      "profile": "multisig"
+    },
+    {
+      "boc_hex": "b5ee9c7201010201000c00010a026ae6822c0100040301",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "expected": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "action_count": 0,
+        "actions": [],
+        "algorithm": "ML-DSA-44",
+        "boc_sha256": "63db9b2d6837ab75cea15b16a269657ae380f66e6f9d66068f31c4f154682f55",
+        "context_origin": "caller-supplied-untrusted",
+        "cryptographically_verified": false,
+        "freshness_checked": false,
+        "kind": 2,
+        "membership_change": {
+          "compared_with_untrusted_state": false,
+          "effect": "Immediate account change, authorized by the PRE-CHANGE quorum",
+          "new_quorum": 1,
+          "operation": "set_quorum",
+          "vault_delay_bypassed": false
+        },
+        "network_global_id": -777777,
+        "operation": "configure",
+        "profile": "pq-multisig-v1/vault-only/request",
+        "replay_checked": false,
+        "request_cell_hash": "bcb5274b859fecbced2ed605614b8c9a307dd807b45c6b01fe766be6d3acce1a",
+        "root_cell_hash": "bcb5274b859fecbced2ed605614b8c9a307dd807b45c6b01fe766be6d3acce1a",
+        "schema": "tos.custody.multisig-inspection.v1",
+        "seqno": 9,
+        "signature_set_compared_with_untrusted_state": false,
+        "signatures": null,
+        "signing_authorized": false,
+        "signing_context_ascii": "TOS-PQ-QUORUM-v1",
+        "signing_domain": "0x504d5332",
+        "signing_message_hex": "d5dfed82687bbba759896af80b75c67cda931b4242f8d4c5e761ff6f7119c888",
+        "signing_message_length_bytes": 32,
+        "state_authenticated": false,
+        "supplied_state": null,
+        "unsigned_relay": null,
+        "unsigned_relayer_query_id": null,
+        "upstream_commit": "def735f3ad9c57a4b8fc8de43537075baec2271a",
+        "valid_until_inclusive": 1793491500,
+        "warnings": [
+          "Network/account/seqno are NOT in Request; derive them from authenticated state before signing.",
+          "The quorum preimage cell hash, NOT the Request/BOC/JSON hash, is the signing message.",
+          "Membership/count comparisons against supplied data do not verify signatures or chain state.",
+          "Account membership changes are immediate; Vault governance retains its separate delay.",
+          "Sends are best effort (+2 forced); sequence consumption is not settlement proof.",
+          "Relayer routing/value/query ID are outside the quorum signature."
+        ]
+      },
+      "form": "request",
+      "name": "multisig/lower-quorum",
+      "profile": "multisig"
+    },
+    {
+      "boc_hex": "b5ee9c7201010201000c00010a026ae6822c01000403",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "form": "request",
+      "name": "multisig/truncated",
+      "profile": "multisig",
+      "reject": true
+    },
+    {
+      "boc_hex": "b5ee9c7201010201000c00010a026ae6822c010004030100",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "form": "request",
+      "name": "multisig/trailing-byte",
+      "profile": "multisig",
+      "reject": true
+    },
+    {
+      "boc_hex": "0000000001010201000c00010a026ae6822c0100040301",
+      "context": {
+        "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+        "network_global_id": -777777,
+        "seqno": 9
+      },
+      "form": "request",
+      "name": "multisig/bad-magic",
+      "profile": "multisig",
+      "reject": true
+    }
+  ],
+  "schema": "tos.custody.portable-parser-corpus.v1"
+}

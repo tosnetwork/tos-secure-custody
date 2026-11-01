@@ -5,5 +5,5 @@
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.source-reproducibility.v1",
   "scope": "source archive only; not firmware/toolchain reproducibility",
-  "source_digest": "fb0e0220d7b12b3f5815de2ee487d859ac1942541b9bdb86ef511e7592f3a7fd"
+  "source_digest": "f4ad9d304923cf51844c4a7a7495f7dc7d750e062b53a4fa3e7440483d53f61d"
 }

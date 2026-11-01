@@ -5,8 +5,14 @@
 baseline tests pass. Source digests exclude `evidence/` to prevent circular hashing.
 
 The reference tests include real Ed25519 signing/verification with fresh software-generated disposable
-keys. NetHSM HTTP transport is mocked. Attestation is software-fixture evidence only. Native TVM,
-physical devices, PQ hardware, firmware reproduction and independent audit were not run.
+keys. NetHSM HTTP transport is mocked. Attestation is software-fixture evidence only.
+Physical devices, PQ hardware, firmware reproduction and independent audit were not run.
+
+`native-conformance.json` records 65 locally executed upstream native scenarios and seven
+custody-integrated scenarios, parser/preimage comparisons and existing binary fingerprints.
+The native emulator build provenance is explicitly limited; see `docs/LOCAL_ACCEPTANCE.md`.
+`real-signature-checks.json` records actual OpenSSL ML-DSA positive and negative checks
+against public test-key vectors. Neither report authenticates production chain state.
 
 Do not edit a result into a pass. Regenerate it from the documented command. A result is not a
 production approval, a third-party review, a remote GitHub CI result or a funding authorization.

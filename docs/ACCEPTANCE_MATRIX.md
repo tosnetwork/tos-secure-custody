@@ -24,15 +24,15 @@ REF success never substitutes for NATIVE, HIL or LAB evidence.
 | A16 | Stale evidence, revoked device or rollback | Fixture verification rejects | REF `test_attestation`; real hardware provenance outstanding |
 | A17 | Debug enabled, insecure boot or unknown firmware | Reject signed fixture claims | REF `test_attestation`; does not prove hardware state |
 | A18 | Attempt to turn inspection into signing | Offline production API refuses | REF `test_policy_offline` |
-| A19 | Remove a security guard | Named baseline passes; named assertion fails after mutation | REF sixteen sensitivity controls |
+| A19 | Remove a security guard | Named baseline passes; named assertion fails after mutation | REF mutation controls, including ML-DSA backend/context guards |
 | A20 | Different source paths/mtimes | Identical source TAR bytes | REF source packaging only |
-| A21 | Business host root + business key abuse | Guardian and Vault prevent unilateral treasury payout | NATIVE + HIL NOT RUN |
-| A22 | Real PQ role-wallet request and cold quorum | Exact signed messages execute; insufficient quorum fails | NATIVE + HIL NOT RUN |
+| A21 | Business host root + business key abuse | Guardian and Vault prevent unilateral treasury payout | NATIVE role-separation scenarios passed locally; host compromise/HIL outstanding |
+| A22 | Real PQ role-wallet request and cold quorum | Exact signed messages execute; insufficient quorum fails | NATIVE pinned local wallet/cold suites passed; HIL outstanding |
 | A23 | Malicious RPC state/finality and code substitution | Independent proof verification rejects | NATIVE NOT IMPLEMENTED |
 | A24 | Device shows A but signs B | Hardware confirmation cannot authorize substituted preimage | HIL NOT RUN |
 | A25 | Policy/check/sign TOCTOU and process restart | Approval invalidated or exact state/intent preserved | NATIVE + HIL NOT RUN |
-| A26 | Token bounce/receipt/retry amplification | No unauthorized budget restoration or duplicate payout | NATIVE NOT RUN for this project |
-| A27 | Compromised hot role blocks recovery | Exact cold/pauser rules and delay preserved | NATIVE + HIL NOT RUN |
+| A26 | Token bounce/receipt/retry amplification | No unauthorized budget restoration or duplicate payout | NATIVE Vault suite and real Token transfer passed locally; complete operational acceptance outstanding |
+| A27 | Compromised hot role blocks recovery | Exact cold/pauser rules and delay preserved | NATIVE delay/pause/recovery scenarios passed locally; HIL outstanding |
 | A28 | Device loss and backup/restore rollback | Recovery maintains quorum, replay state and cold authority | HIL NOT RUN |
 | A29 | Malicious update/unsigned firmware/rollback | Device rejects or verifier blocks it | HIL NOT RUN |
 | A30 | Side-channel/fault-injection/debug/chip substitution | Meets declared physical threat class | LAB NOT RUN |
@@ -46,7 +46,7 @@ REF success never substitutes for NATIVE, HIL or LAB evidence.
 | A33 | Highload request hash vs BOC/JSON hash | Exact request hash and context; no signing authorization | REF `test_highload`; two pinned upstream Python-codec vectors |
 | A34 | Hidden action, reordered batch or balance-sweep mode | Inspect every action in execution order; reject unsupported modes/actions | REF `test_highload`; targeted mutations |
 | A35 | Wallet/Vault network or destination substitution | Reject mismatched nested binding and relayed wallet target | REF `test_highload`; targeted mutations |
-| A36 | Malformed PQ signature or forged "verified" label | Exact stored shape; never assert cryptographic verification; reject host labels | REF `test_highload`; native/HIL remain NOT RUN |
+| A36 | Malformed PQ signature or forged "verified" label | Inspection checks shape; separate verification requires valid signatures; reject host labels | REF plus real OpenSSL vectors; local NATIVE; HIL outstanding |
 | A37 | Documentation PNG breaks source packaging | Include image bytes/hash; retain unknown-type and symlink rejection | REF `test_source_bundle`; full source reproducibility check |
 
 ## Required acceptance record
@@ -56,8 +56,9 @@ public key IDs (never secrets), policy/code/role configuration, attack transcrip
 outcome, test count including skips, and independent reviewer identity. Preserve failed runs too.
 A missing native tool/device must be a blocked test, not an invisible skip or a fabricated success.
 
-The checked-in local reports record only executed REF tests. An upstream project's historical test
-counts and results are not counted as this project's acceptance evidence.
+The checked-in unit reports record REF tests. The separate native-conformance report records
+the native suites actually executed locally and fingerprints the existing compiler/emulator artifacts.
+An upstream project's historical results are not counted as this project's acceptance evidence.
 
 ## S1b cold multisig reference additions
 
@@ -70,5 +71,6 @@ counts and results are not counted as this project's acceptance evidence.
 | Cold request/submission/internal relay | REF | Ordered fixed-value actions; target/shape/tail rejection; no auth claim |
 | Independent upstream Python codec | CODEC | Five frozen vectors and 12-of-64 structural comparison; NOT native TVM |
 
-These additions do not satisfy authenticated state, actual signature verification,
-native transaction execution, hardware or external-review acceptance gates.
+These inspection additions alone do not satisfy authenticated state, signature verification,
+native execution, hardware or external-review acceptance gates. The later local verification
+increment adds separate cryptographic/native evidence; see [local acceptance](LOCAL_ACCEPTANCE.md).

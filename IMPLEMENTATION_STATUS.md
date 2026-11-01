@@ -22,6 +22,11 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 - A software-fixture attestation verifier using real Ed25519 verification, explicit fixture opt-in,
   binding checks, fresh challenges, process-local atomic replay protection and counter checks.
 - Unit/adversarial tests, guard-removal sensitivity controls and deterministic source packaging.
+- Optional OpenSSL 3.5+ Pure ML-DSA-44 verification of highload and cold multisig submissions/relays
+  against supplied public keys/account data; key/state provenance remains unauthenticated.
+- Pinned native wallet/Vault runner with parser preimage comparisons and independent OpenSSL verification.
+  Local evidence covers 65 upstream tests plus seven integrated scenarios; existing native binaries are fingerprinted.
+- Public signature vectors with negative checks and a 13-case language-neutral parser corpus for firmware ports.
 - Draft CI and local GitHub publication/issue scripts.
 
 ## Specified but not implemented or qualified
@@ -30,7 +35,7 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 |---|---|---|
 | Full role-wallet transaction parsing | PARTIAL / BLOCKED | Highload and cold multisig reference inspection exist; cryptographic authentication, other profiles, trusted state and native conformance remain missing |
 | Authenticated state and finality | BLOCKED | No trusted light-client/state-proof implementation or native conformance run |
-| Native custody end-to-end | NOT RUN | No TOS native emulator/toolchain was available in the preparation environment |
+| Native custody end-to-end | PARTIAL / LOCAL | PQ wallet-to-Vault scenarios executed locally; full operational/Token/hardware acceptance remains outstanding |
 | Physical NetHSM | NOT RUN | No device/credentials were available; no network request was made to an HSM |
 | PKCS#11 | NOT IMPLEMENTED | Placeholder always raises `UnsupportedProfile` |
 | PQ hardware signing | NOT IMPLEMENTED | No ML-DSA key generation/storage/signing inside a qualified hardware boundary |
@@ -48,7 +53,8 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 gates merely to make a demo look complete. Replacing them requires implementing the missing boundary,
 adding native and hardware tests, and obtaining an independent review of the exact source revision.
 
-The highload and cold multisig parsers never verify ML-DSA signatures or authenticates a wallet, state, freshness or replay status.
+The inspection parsers do not verify signatures. Separate diagnostic verification entry points
+verify ML-DSA against supplied keys; they do not authenticate a wallet, state, freshness or replay status.
 Their offline schemas cannot enter the old single-payment diagnostic policy path. S1 is not complete.
 
 The software fixture uses Ed25519 only for testing the attestation protocol. It does not implement,

@@ -197,8 +197,16 @@ test_unknown_opcode (test_vault.VaultTests.test_unknown_opcode) ... ok
 test_unsupported_workchain (test_vault.VaultTests.test_unsupported_workchain) ... ok
 test_wrong_domain (test_vault.VaultTests.test_wrong_domain) ... ok
 test_zero_payment (test_vault.VaultTests.test_zero_payment) ... ok
+test_backend_errors_and_timeout_fail_closed (test_verification.VerificationTests.test_backend_errors_and_timeout_fail_closed) ... ok
+test_backend_preserves_pure_wallet_context (test_verification.VerificationTests.test_backend_preserves_pure_wallet_context) ... ok
+test_highload_uses_exact_wire_bytes_and_preserves_trust_boundary (test_verification.VerificationTests.test_highload_uses_exact_wire_bytes_and_preserves_trust_boundary) ... ok
+test_invalid_inputs_never_reach_backend (test_verification.VerificationTests.test_invalid_inputs_never_reach_backend) ... ok
+test_multisig_verifies_every_old_quorum_member (test_verification.VerificationTests.test_multisig_verifies_every_old_quorum_member) ... ok
+test_stored_bytes_full_consumption (test_verification.VerificationTests.test_stored_bytes_full_consumption) ... ok
+test_unsigned_forms_refused (test_verification.VerificationTests.test_unsigned_forms_refused) ... ok
+test_wrong_quorum_rejected_before_backend (test_verification.VerificationTests.test_wrong_quorum_rejected_before_backend) ... ok
 
 ----------------------------------------------------------------------
-Ran 199 tests in 0.355s
+Ran 207 tests in 0.393s
 
 OK

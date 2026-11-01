@@ -25,7 +25,23 @@ jobs:
         run: python3 scripts/mutation_controls.py
       - name: Deterministic source packaging
         run: python3 scripts/check_reproducible.py
+      - name: Portable device-parser corpus
+        run: python3 scripts/check_portable_vectors.py
       - name: Production signing remains blocked
         run: python3 scripts/check_release_readiness.py --expect-blocked
       - name: Whitespace hygiene
         run: git diff --check
+  real-mldsa:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - name: Install OpenSSL ML-DSA verifier
+        run: brew install openssl@3
+      - name: Real ML-DSA positive and negative vectors
+        run: python3 scripts/check_crypto_vectors.py --openssl "$(brew --prefix openssl@3)/bin/openssl"

@@ -1,0 +1,8 @@
+{
+  "checks_passed": 11,
+  "hardware_tested": false,
+  "openssl": "OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)",
+  "schema": "tos.custody.real-signature-checks.v1",
+  "source_digest": "f4ad9d304923cf51844c4a7a7495f7dc7d750e062b53a4fa3e7440483d53f61d",
+  "state_authenticated": false
+}
