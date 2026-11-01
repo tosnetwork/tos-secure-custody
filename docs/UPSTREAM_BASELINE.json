@@ -30,6 +30,14 @@
     {
       "path": "test/treasury-vault/test_pq_wallets.py",
       "git_blob_sha1": "2d814ffc4c96af646e14b1cddddc9321d609f14c"
+    },
+    {
+      "path": "crypto/smartcont/pq-multisig-code.fc",
+      "git_blob_sha1": "6eaa9f03bf8aebbf9e46227a6c66974d3811871c"
+    },
+    {
+      "path": "crypto/smartcont/pq-quorum-signatures.fc",
+      "git_blob_sha1": "06db806c7a848f3dbc39f4813a85d75f9177b778"
     }
   ],
   "native_conformance_executed": false,

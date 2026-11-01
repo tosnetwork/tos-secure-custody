@@ -63,3 +63,13 @@ messages that a friendly builder would never produce. Retest on the exact releas
 
 The upstream repository's earlier test results are not evidence that this new project passed its own
 integration tests. No native or hardware acceptance was run during bootstrap preparation.
+
+## Cold PQ multisig reference profile
+
+RFC 0004 adds cold account-data/request/submission/internal-relay inspection. Unlike
+highload, its Request omits network/account/seqno; the quorum signing hash is built
+from contextual values, a purpose domain, expiry and payload. Context is untrusted
+until independent finalized-state/code verification is implemented. Membership changes
+use the OLD quorum and take effect immediately in the account, without bypassing the
+Vault's separate delay. Account data and signature containers are structural evidence
+only. Full limits (64 members / 12 signatures) do not imply native or crypto execution.

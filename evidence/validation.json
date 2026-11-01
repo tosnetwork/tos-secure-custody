@@ -13,10 +13,10 @@
     "independent security audit"
   ],
   "python": "3.13.5",
-  "recorded_at_utc": "2026-11-01T01:59:11.457997+00:00",
+  "recorded_at_utc": "2026-11-01T02:27:02.192886+00:00",
   "schema": "tos.custody.validation.v1",
   "skips": 0,
-  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1",
+  "source_digest": "30b7dbccdc34ff3b25af70a8791439144a103764e7b8c9431647c59f7135ae68",
   "successful": true,
-  "tests_run": 135
+  "tests_run": 198
 }

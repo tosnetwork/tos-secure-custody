@@ -1,8 +1,9 @@
 {
-  "archive_hash_policy": "An archive containing this report has its own separately calculated digest; no self-referential archive hash is claimed.",
   "byte_identical": true,
-  "comparison": "two independent directories and differing filesystem mtimes",
+  "command": "python3 scripts/check_reproducible.py",
+  "comparison": "two independent directories with different paths and mtimes",
+  "hardware_testing": "NOT RUN",
   "schema": "tos.custody.source-reproducibility.v1",
-  "scope": "deterministic source archives including documentation PNG; NOT firmware/toolchain reproducibility",
-  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1"
+  "scope": "source archive only; not firmware/toolchain reproducibility",
+  "source_digest": "30b7dbccdc34ff3b25af70a8791439144a103764e7b8c9431647c59f7135ae68"
 }

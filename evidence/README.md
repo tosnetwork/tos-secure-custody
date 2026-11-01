@@ -14,3 +14,9 @@ production approval, a third-party review, a remote GitHub CI result or a fundin
 RFC 0003 adds REF-level PQ highload inspection. Frozen fixture hashes were independently
 reproduced with the pinned upstream Python codec; this is not native VM or signature evidence.
 `reproducibility.json` records source archive comparison, not firmware reproducibility.
+
+RFC 0004 adds cold multisig reference inspection and full-limit structural comparisons.
+Reproduce `fixtures/pq-multisig-vectors.json` with the whole-blob-pinned upstream codec
+using `scripts/check_upstream_multisig.py`. Frozen vectors are not independent native
+execution. Quorum comparison is NOT cryptographic quorum verification. No state proof,
+physical hardware or independent security review is claimed.

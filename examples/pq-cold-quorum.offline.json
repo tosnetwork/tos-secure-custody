@@ -1,0 +1,10 @@
+{
+  "boc_hex": "b5ee9c7201010201000c00010a026ae6822c0100040301",
+  "context": {
+    "account": "0:4444444444444444444444444444444444444444444444444444444444444444",
+    "network_global_id": -777777,
+    "seqno": 9
+  },
+  "form": "request",
+  "schema": "tos.custody.offline-multisig-inspection.v1"
+}

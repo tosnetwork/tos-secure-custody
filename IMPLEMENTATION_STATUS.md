@@ -12,6 +12,9 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 - PQ highload Vault-only request/submission/relay inspection, 1..16 fixed-value actions in execution order,
   exact 32-byte signing message/context, canonical signature shape (NOT cryptographic verification),
   and two frozen vectors reproduced with the pinned upstream Python codec. See RFC 0003.
+- Cold PQ multisig request/submission/relay and 64-member account-data inspection, exact contextual
+  quorum preimage, all three membership changes, old-quorum diagnostic comparisons and five frozen
+  upstream-codec vectors plus a 12-of-64 structural comparison. NOT crypto/state verification; RFC 0004.
 - An inspection-only CLI and offline format that reject host-supplied display labels and secret fields.
 - Diagnostic payment appraisal against independently supplied policy inputs. It is not authentication.
 - An experimental NetHSM Ed25519 adapter with TLS validation, pinned public-key verification,
@@ -25,7 +28,7 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 
 | Requirement | Status | Blocking reason |
 |---|---|---|
-| Full role-wallet transaction parsing | PARTIAL / BLOCKED | Highload reference inspection exists; cold multisig/other profiles, authenticated state and native conformance remain missing |
+| Full role-wallet transaction parsing | PARTIAL / BLOCKED | Highload and cold multisig reference inspection exist; cryptographic authentication, other profiles, trusted state and native conformance remain missing |
 | Authenticated state and finality | BLOCKED | No trusted light-client/state-proof implementation or native conformance run |
 | Native custody end-to-end | NOT RUN | No TOS native emulator/toolchain was available in the preparation environment |
 | Physical NetHSM | NOT RUN | No device/credentials were available; no network request was made to an HSM |
@@ -45,8 +48,8 @@ Snapshot: 2026-11-01. Stage: **experimental, inspection-only**.
 gates merely to make a demo look complete. Replacing them requires implementing the missing boundary,
 adding native and hardware tests, and obtaining an independent review of the exact source revision.
 
-The highload parser never verifies ML-DSA signatures or authenticates a wallet, state, freshness or replay status.
-Its new offline schema cannot enter the old single-payment diagnostic policy path. S1 is not complete.
+The highload and cold multisig parsers never verify ML-DSA signatures or authenticates a wallet, state, freshness or replay status.
+Their offline schemas cannot enter the old single-payment diagnostic policy path. S1 is not complete.
 
 The software fixture uses Ed25519 only for testing the attestation protocol. It does not implement,
 emulate, or stand in for post-quantum hardware. The NetHSM prototype advertises Ed25519 only and

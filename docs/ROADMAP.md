@@ -124,3 +124,12 @@ Use **"TOS+ — advancing open, verifiable post-quantum hardware custody"** as p
 The current `0.1.0.dev0` repository is **experimental and inspection-only**: the offline signer and production hardware-attestation entry points deliberately refuse authorization. The NetHSM Ed25519 experiment, software attestation fixtures and reproducible *source archives* are not hardware or post-quantum production evidence.
 
 Use the six issue-ready workstream files for implementation tasks. The project epic is the charter. Closing any issue requires links to exact source hashes, commands, outputs, device/firmware identities, native test evidence and outstanding exceptions. Missing native or hardware tools block the corresponding acceptance.
+
+## S1b reference implementation increment (2026-11-01)
+
+RFC 0004 implements cold PQ multisig exact-preimage and account-data inspection,
+including execute/add/remove/quorum and OLD-quorum structural comparisons. It builds
+on RFC 0003 and remains inspection-only. Full 64-member/12-signature-shaped inputs are
+software tests, not hardware, genuine ML-DSA verification or authenticated state.
+S1 remains open pending independently authenticated finality/code/state, native
+wallet-to-Vault execution, cryptographic verification and independent review.
