@@ -58,3 +58,17 @@ A missing native tool/device must be a blocked test, not an invisible skip or a 
 
 The checked-in local reports record only executed REF tests. An upstream project's historical test
 counts and results are not counted as this project's acceptance evidence.
+
+## S1b cold multisig reference additions
+
+| Scenario | Evidence level | Current reference coverage |
+|---|---|---|
+| Context versus Request/signing hash; purpose domain | REF | Distinct hash and network/account/seqno/expiry mutation tests |
+| Full member set, key identities, dictionary labels | REF | 64 keys, stored-count mismatch, aliases, label/tail/DAG bounds |
+| Old quorum for membership change | REF | Proposed lower threshold cannot approve itself; exact signature count/membership |
+| Member loss and quorum bounds | REF | Duplicate/full addition, unknown removal, removal below threshold, invalid quorum |
+| Cold request/submission/internal relay | REF | Ordered fixed-value actions; target/shape/tail rejection; no auth claim |
+| Independent upstream Python codec | CODEC | Five frozen vectors and 12-of-64 structural comparison; NOT native TVM |
+
+These additions do not satisfy authenticated state, actual signature verification,
+native transaction execution, hardware or external-review acceptance gates.

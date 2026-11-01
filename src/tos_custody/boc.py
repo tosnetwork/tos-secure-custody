@@ -13,6 +13,14 @@ MAX_BYTES = 131072
 MAX_CELLS = 256
 MAX_DEPTH = 32
 
+
+def _limits(max_cells, max_depth):
+    # Larger profiles opt in explicitly; ordinary inspection keeps its old limits.
+    if type(max_cells) is not int or not 1 <= max_cells <= 1024:
+        raise CustodyError("invalid cell-count limit")
+    if type(max_depth) is not int or not 1 <= max_depth <= 96:
+        raise CustodyError("invalid cell-depth limit")
+
 def crc32c(data):
     crc = 0xFFFFFFFF
     for byte in data:
@@ -45,12 +53,13 @@ class Cell:
         d2 = self.bit_length // 8 + (self.bit_length + 7) // 8
         return bytes([len(self.refs), d2]) + data
 
-    def commitment(self):
+    def commitment(self, *, max_depth=MAX_DEPTH):
+        _limits(MAX_CELLS, max_depth)
         memo = {}
         active = set()
         def visit(cell, nesting):
             ident = id(cell)
-            if nesting > MAX_DEPTH or ident in active:
+            if nesting > max_depth or ident in active:
                 raise CustodyError("cell depth or cycle limit exceeded")
             if ident in memo:
                 return memo[ident]
@@ -125,7 +134,8 @@ class Slice:
         if self.position != self.cell.bit_length or self.ref_position != len(self.cell.refs):
             raise CustodyError("unconsumed bits or references")
 
-def parse_boc(raw):
+def parse_boc(raw, *, max_cells=MAX_CELLS, max_depth=MAX_DEPTH):
+    _limits(max_cells, max_depth)
     if type(raw) is not bytes or not 11 <= len(raw) <= MAX_BYTES or raw[:4] != MAGIC:
         raise CustodyError("invalid BOC magic or size")
     flags, offset_size = raw[4:6]
@@ -148,7 +158,7 @@ def parse_boc(raw):
         return int.from_bytes(take(n), "big")
     count, roots, absent = number(size), number(size), number(size)
     total = number(offset_size)
-    if not 1 <= count <= MAX_CELLS or roots != 1 or absent != 0:
+    if not 1 <= count <= max_cells or roots != 1 or absent != 0:
         raise CustodyError("unsupported BOC root/count layout")
     if number(size) != 0:
         raise CustodyError("root must be the first cell")
@@ -193,22 +203,23 @@ def parse_boc(raw):
     for i in range(count - 1, -1, -1):
         data, width, refs = entries[i]
         depth = max((depths[r] + 1 for r in refs), default=0)
-        if depth > MAX_DEPTH:
+        if depth > max_depth:
             raise CustodyError("cell depth limit exceeded")
         depths[i] = depth
         built[i] = Cell(data, width, tuple(built[r] for r in refs))
     return built[0]
 
-def serialize_boc(root, *, crc=False, indexed=False):
+def serialize_boc(root, *, crc=False, indexed=False, max_cells=MAX_CELLS, max_depth=MAX_DEPTH):
     """Deterministic encoder for ordinary-cell fixture/inspection transport."""
+    _limits(max_cells, max_depth)
     ordered, seen = [], set()
     def visit(cell, depth):
-        if depth > MAX_DEPTH:
+        if depth > max_depth:
             raise CustodyError("cell depth limit exceeded")
         if id(cell) in seen:
             return
         seen.add(id(cell))
-        if len(seen) > MAX_CELLS:
+        if len(seen) > max_cells:
             raise CustodyError("cell count limit exceeded")
         for ref in cell.refs:
             visit(ref, depth + 1)

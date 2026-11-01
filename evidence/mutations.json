@@ -95,10 +95,75 @@
       "name": "bounded-wallet-batch",
       "target": "test_highload.HighloadTests.test_action_limit",
       "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-context-sequence",
+      "target": "test_multisig.MultisigTests.test_context_binding",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-config-domain",
+      "target": "test_multisig.MultisigTests.test_configuration_domain",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-key-identity",
+      "target": "test_multisig.MultisigTests.test_state_key_id_mismatch",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-stored-count",
+      "target": "test_multisig.MultisigTests.test_state_member_count_mismatch",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-prechange-quorum",
+      "target": "test_multisig.MultisigTests.test_exact_prechange_quorum",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-signer-membership",
+      "target": "test_multisig.MultisigTests.test_signer_membership",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-relay-target",
+      "target": "test_multisig.MultisigTests.test_relay_account_binding",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-sequence-exhaustion",
+      "target": "test_multisig.MultisigTests.test_sequence_exhaustion",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-removal-quorum",
+      "target": "test_multisig.MultisigTests.test_remove_unknown_or_below_quorum",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-state-sequence",
+      "target": "test_multisig.MultisigTests.test_state_sequence_mismatch",
+      "targeted_assertion_failed_after_mutation": true
+    },
+    {
+      "baseline_passed": true,
+      "name": "cold-key-byte-order",
+      "target": "test_multisig.MultisigTests.test_added_key_identity_without_state",
+      "targeted_assertion_failed_after_mutation": true
     }
   ],
-  "execution": "Four sequential groups of four controls using the unchanged runner; all use the same source digest.",
   "hardware_testing": "NOT RUN",
   "schema": "tos.custody.mutation-results.v1",
-  "source_digest": "d11fb8c0a9ec8c5274821ceaee3af515a481e8238c3aee75ae030c52819270c1"
+  "source_digest": "fb0e0220d7b12b3f5815de2ee487d859ac1942541b9bdb86ef511e7592f3a7fd"
 }

@@ -94,6 +94,70 @@ test_unsigned_relay_fields_do_not_change_preimage (test_highload.HighloadTests.t
 test_vault_binding (test_highload.HighloadTests.test_vault_binding) ... ok
 test_wrong_submission_opcode (test_highload.HighloadTests.test_wrong_submission_opcode) ... ok
 test_zero_timeout (test_highload.HighloadTests.test_zero_timeout) ... ok
+test_absolute_depth_limit (test_multisig.MultisigDictionaryTests.test_absolute_depth_limit) ... ok
+test_label_length_bounds (test_multisig.MultisigDictionaryTests.test_label_length_bounds) ... ok
+test_leaf_and_fork_full_consumption (test_multisig.MultisigDictionaryTests.test_leaf_and_fork_full_consumption) ... ok
+test_limit_arguments (test_multisig.MultisigDictionaryTests.test_limit_arguments) ... ok
+test_shared_dag_expansion_bound (test_multisig.MultisigDictionaryTests.test_shared_dag_expansion_bound) ... ok
+test_skewed_dictionary_depth (test_multisig.MultisigDictionaryTests.test_skewed_dictionary_depth) ... ok
+test_action_bounds (test_multisig.MultisigTests.test_action_bounds) ... ok
+test_action_order (test_multisig.MultisigTests.test_action_order) ... ok
+test_add_duplicate_or_full (test_multisig.MultisigTests.test_add_duplicate_or_full) ... ok
+test_add_member (test_multisig.MultisigTests.test_add_member) ... ok
+test_added_key_identity_without_state (test_multisig.MultisigTests.test_added_key_identity_without_state) ... ok
+test_all_label_encodings (test_multisig.MultisigTests.test_all_label_encodings) ... ok
+test_change_without_state_not_authenticated (test_multisig.MultisigTests.test_change_without_state_not_authenticated) ... ok
+test_cli_and_controlled_error (test_multisig.MultisigTests.test_cli_and_controlled_error) ... ok
+test_configuration_domain (test_multisig.MultisigTests.test_configuration_domain) ... ok
+test_context_binding (test_multisig.MultisigTests.test_context_binding) ... ok
+test_context_boundaries (test_multisig.MultisigTests.test_context_boundaries) ... ok
+test_context_type_and_schema (test_multisig.MultisigTests.test_context_type_and_schema) ... ok
+test_crc_index_encoding (test_multisig.MultisigTests.test_crc_index_encoding) ... ok
+test_deep_signature_dictionary_relay (test_multisig.MultisigTests.test_deep_signature_dictionary_relay) ... ok
+test_empty_or_overlimit_signatures (test_multisig.MultisigTests.test_empty_or_overlimit_signatures) ... ok
+test_every_truncation (test_multisig.MultisigTests.test_every_truncation) ... ok
+test_exact_prechange_quorum (test_multisig.MultisigTests.test_exact_prechange_quorum) ... ok
+test_exact_preimage_not_request_hash (test_multisig.MultisigTests.test_exact_preimage_not_request_hash) ... ok
+test_expiry_and_payload_binding (test_multisig.MultisigTests.test_expiry_and_payload_binding) ... ok
+test_forbidden_messages (test_multisig.MultisigTests.test_forbidden_messages) ... ok
+test_frozen_upstream_vectors (test_multisig.MultisigTests.test_frozen_upstream_vectors) ... ok
+test_full_12_of_64_structure (test_multisig.MultisigTests.test_full_12_of_64_structure) ... ok
+test_governance_payload (test_multisig.MultisigTests.test_governance_payload) ... ok
+test_invalid_quorum_change (test_multisig.MultisigTests.test_invalid_quorum_change) ... ok
+test_invalid_state_ranges (test_multisig.MultisigTests.test_invalid_state_ranges) ... ok
+test_key_identity_and_state (test_multisig.MultisigTests.test_key_identity_and_state) ... ok
+test_key_length_and_chain (test_multisig.MultisigTests.test_key_length_and_chain) ... ok
+test_key_terminal_hidden_tail (test_multisig.MultisigTests.test_key_terminal_hidden_tail) ... ok
+test_no_authentication_claims (test_multisig.MultisigTests.test_no_authentication_claims) ... ok
+test_no_policy_or_signing_shortcut (test_multisig.MultisigTests.test_no_policy_or_signing_shortcut) ... ok
+test_offline_schema (test_multisig.MultisigTests.test_offline_schema) ... ok
+test_quorum_change (test_multisig.MultisigTests.test_quorum_change) ... ok
+test_relay_account_binding (test_multisig.MultisigTests.test_relay_account_binding) ... ok
+test_relay_external_and_missing_sender (test_multisig.MultisigTests.test_relay_external_and_missing_sender) ... ok
+test_relay_unsigned_fields (test_multisig.MultisigTests.test_relay_unsigned_fields) ... ok
+test_remove_member (test_multisig.MultisigTests.test_remove_member) ... ok
+test_remove_unknown_or_below_quorum (test_multisig.MultisigTests.test_remove_unknown_or_below_quorum) ... ok
+test_request_trailing_data (test_multisig.MultisigTests.test_request_trailing_data) ... ok
+test_same_key_cannot_fill_two_ids (test_multisig.MultisigTests.test_same_key_cannot_fill_two_ids) ... ok
+test_seeded_malformed_boc (test_multisig.MultisigTests.test_seeded_malformed_boc) ... ok
+test_sequence_exhaustion (test_multisig.MultisigTests.test_sequence_exhaustion) ... ok
+test_signature_bytes_unsigned (test_multisig.MultisigTests.test_signature_bytes_unsigned) ... ok
+test_signature_corruption (test_multisig.MultisigTests.test_signature_corruption) ... ok
+test_signer_membership (test_multisig.MultisigTests.test_signer_membership) ... ok
+test_state_full_64_member_set (test_multisig.MultisigTests.test_state_full_64_member_set) ... ok
+test_state_key_id_mismatch (test_multisig.MultisigTests.test_state_key_id_mismatch) ... ok
+test_state_member_count_mismatch (test_multisig.MultisigTests.test_state_member_count_mismatch) ... ok
+test_state_sequence_mismatch (test_multisig.MultisigTests.test_state_sequence_mismatch) ... ok
+test_state_trailing_and_empty_dictionary (test_multisig.MultisigTests.test_state_trailing_and_empty_dictionary) ... ok
+test_submission_signature_structure_only (test_multisig.MultisigTests.test_submission_signature_structure_only) ... ok
+test_submission_wrong_opcode_and_tail (test_multisig.MultisigTests.test_submission_wrong_opcode_and_tail) ... ok
+test_sweep_and_hidden_action (test_multisig.MultisigTests.test_sweep_and_hidden_action) ... ok
+test_unknown_kind_and_form (test_multisig.MultisigTests.test_unknown_kind_and_form) ... ok
+test_unknown_or_trailing_change (test_multisig.MultisigTests.test_unknown_or_trailing_change) ... ok
+test_unpinned_codec_not_executed (test_multisig.MultisigTests.test_unpinned_codec_not_executed) ... ok
+test_untrusted_labels_and_context_flags (test_multisig.MultisigTests.test_untrusted_labels_and_context_flags) ... ok
+test_vault_destination_binding (test_multisig.MultisigTests.test_vault_destination_binding) ... ok
+test_vault_network_binding (test_multisig.MultisigTests.test_vault_network_binding) ... ok
 test_body_only_cannot_pass_appraisal (test_policy_offline.PolicyOfflineTests.test_body_only_cannot_pass_appraisal) ... ok
 test_boolean_nonce_forbidden (test_policy_offline.PolicyOfflineTests.test_boolean_nonce_forbidden) ... ok
 test_cross_role_operation (test_policy_offline.PolicyOfflineTests.test_cross_role_operation) ... ok
@@ -135,6 +199,6 @@ test_wrong_domain (test_vault.VaultTests.test_wrong_domain) ... ok
 test_zero_payment (test_vault.VaultTests.test_zero_payment) ... ok
 
 ----------------------------------------------------------------------
-Ran 135 tests in 0.355s
+Ran 199 tests in 0.355s
 
 OK

@@ -35,7 +35,7 @@ The [evidence-gated roadmap](docs/ROADMAP.md) and [implementation status](IMPLEM
 |---|---|---|
 | HSM adapters | Explicit capability interface; experimental NetHSM Ed25519 transport; pinned-key signature verification; fail-closed PKCS#11 placeholder | Physical-device validation, production PKCS#11, hardware ML-DSA |
 | Offline hardware signer | Bounded offline request format, inspection CLI, host-label rejection, explicit signing-disable gate, hardware/firmware requirements | Device firmware, trusted display, physical approval, QR transport, custody signing |
-| Complete transaction parser | Strict BOC/Vault V1 parsing; bounded PQ highload request, submission and relay inspection; exact signing message/context; all 1..16 supported actions | PQ cold multisig and other wallet profiles, signature verification, authenticated state proofs, native conformance |
+| Complete transaction parser | Strict BOC/Vault V1 parsing; highload and cold multisig request/submission/relay inspection; exact signing messages; 64-member state and 12-signature shape checks | Other wallet profiles, real signature verification, authenticated state proofs, native conformance |
 | Device attestation | Session/key/intent-bound protocol design; cryptographically verified software fixtures; challenge replay and rollback tests | Actual TPM/DICE/secure-element evidence, hardware endorsements, durable verifier state |
 | Reproducible builds | Deterministic source packaging, content manifest, two-directory byte comparison, SHA-pinned checkout action | Hash-locked toolchains/dependencies, reproducible firmware/wheels, independent builder signatures |
 | Institutional attack acceptance | Executable software adversarial tests, seeded parser smoke inputs, targeted guard-removal controls, hardware/native acceptance matrix | Hardware-in-the-loop attacks, native wallet-to-Vault execution, physical attacks, independent expert review |
@@ -112,6 +112,19 @@ network configuration and deployed state must be verified before integration can
 An off-chain custody manifest hash, a Vault request cell hash and the role wallet's actual signing
 preimage are **different objects**. This project does not substitute one for another.
 See [integration](docs/TOS_INTEGRATION.md) and [pinned sources](docs/UPSTREAM_BASELINE.json).
+
+## Cold quorum inspection (reference only)
+
+The cold PQ multisig inspector now derives the exact contextual quorum signing hash,
+parses ordered Vault-only actions and add/remove/quorum changes, and checks supplied
+member dictionaries (up to 64) and signature shapes (up to 12). A lower proposed
+threshold cannot replace the OLD approval threshold. Network/account/sequence inputs
+and optional state are explicitly untrusted; no signature, finality or authorization
+is claimed. See [RFC 0004](docs/rfcs/0004-pq-multisig-inspection.md).
+
+```sh
+PYTHONPATH=src python3 -m tos_custody inspect-bundle examples/pq-cold-quorum.offline.json
+```
 
 ## Documentation
 
